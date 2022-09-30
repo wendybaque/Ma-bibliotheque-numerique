@@ -3,7 +3,6 @@ import logo from "../assets/logo-noir-removebg.png";
 
 export default function NavBar() {
   return (
-    <div>
       <nav
         className="flex items-center justify-between flex-wrap bg-yellow-900 p-6"
         role="navigation"
@@ -59,6 +58,5 @@ export default function NavBar() {
           </div>
         </div>
       </nav>
-    </div>
   );
 }
