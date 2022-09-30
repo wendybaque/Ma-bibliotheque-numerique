@@ -24,13 +24,13 @@ export default function Header() {
                 </h1>
                 <button
             type="button"
-            className="hover:animate-bounce text-white hover:text-white bg-yellow-600 box-shadow-lg focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+            className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
           >
             <Link to="/signin">Connexion</Link>
           </button>
           <button
             type="button"
-            className="hover:animate-bounce text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+            className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
           >
             <Link to="/signup">Inscription</Link>
           </button>
