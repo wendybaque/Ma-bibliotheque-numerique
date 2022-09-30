@@ -5,6 +5,8 @@ import Navbar from "../src/components/Navbar";
 import Footer from "../src/components/Footer";
 import Home from "../src/pages/Home";
 import Library from "../src/pages/Library";
+import Add from "../src/pages/Add";
+import Update from "../src/pages/Update";
 import Signin from "../src/pages/Signin";
 import Signup from "../src/pages/Signup";
 import ForgetPassword from "../src/pages/ForgetPassword";
@@ -22,6 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/library" element={<Library />} />
+          <Route path="/add" element={<Add />} />
+          <Route path="/update" element={<Update />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
