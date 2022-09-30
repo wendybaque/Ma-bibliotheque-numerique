@@ -2,9 +2,7 @@ import React from 'react'
 
 const Favorite = () => {
   return (
-    <div>
-      Favorite books
-    </div>
+    <div>Favorite</div>
   )
 }
 

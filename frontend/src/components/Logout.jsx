@@ -2,9 +2,7 @@ import React from 'react'
 
 const Logout = () => {
   return (
-    <div>
-      Logout Toogle
-    </div>
+    <div>Logout</div>
   )
 }
 
