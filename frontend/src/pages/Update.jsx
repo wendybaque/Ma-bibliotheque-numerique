@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Footer = () => {
+const Update = () => {
   return (
     <div>
-      Footer
+      Update a book
     </div>
   )
 }
 
-export default Footer
+export default Update

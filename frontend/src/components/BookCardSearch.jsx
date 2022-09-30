@@ -2,7 +2,9 @@ import React from 'react'
 
 const BookCardSearch = () => {
   return (
-    <div>BookCardSearch</div>
+    <div>
+      Book Card for Search page
+    </div>
   )
 }
 

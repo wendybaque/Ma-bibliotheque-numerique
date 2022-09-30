@@ -2,8 +2,11 @@ import React from 'react'
 
 const Library = () => {
   return (
-    <div>Library</div>
+    <div>
+      All books
+    </div>
   )
 }
 
 export default Library
+
