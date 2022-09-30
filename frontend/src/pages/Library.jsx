@@ -1,5 +1,6 @@
 import React from 'react';
 import {Helmet} from "react-helmet";
+import BookCard from '../components/BookCard';
 
 const Library = () => {
   return (
@@ -9,7 +10,7 @@ const Library = () => {
         <title>Bibliothèque</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      All books
+      <BookCard/>
     </div>
   )
 }
