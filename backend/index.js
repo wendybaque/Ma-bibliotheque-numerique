@@ -43,6 +43,25 @@ app.get("/books/fav", (req, res) => {
     });
   });
 
+  // ADD A BOOK = CREATE
+  app.post("/books", (req, res) => {
+    const q = "INSERT INTO books(`title`, `desc`, `author`, `cover`, `opinion`, `publisher`, `genre`) VALUES (?)";
+    const values = [
+      req.body.title,
+      req.body.desc,
+      req.body.author,
+      req.body.cover,
+      req.body.opinion,
+      req.body.publisher,
+      req.body.genre,
+    ];
+    db.query(q, [values], (err, data) => {
+      if (err) return res.send(err);
+      return res.json("Ton livre a bien été ajouté.");
+    });
+  });
+  
+
 // BACKEND CONFIG
 app.get("/", (req, res) => {
   res.json("Hello, this is the backend.");
