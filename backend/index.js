@@ -31,6 +31,18 @@ app.get("/books/az", (req, res) => {
   });
 });
 
+// GET FAVORITES BOOKS = READ
+app.get("/books/fav", (req, res) => {
+    const query = "SELECT * FROM books WHERE opinion = 5";
+    db.query(query, (err, data) => {
+      if (err) {
+        console.log(err);
+        return res.json(err);
+      }
+      return res.json(data);
+    });
+  });
+
 // BACKEND CONFIG
 app.get("/", (req, res) => {
   res.json("Hello, this is the backend.");
