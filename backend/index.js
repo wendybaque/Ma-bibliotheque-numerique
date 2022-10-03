@@ -45,7 +45,7 @@ app.get("/books/fav", (req, res) => {
 
   // ADD A BOOK = CREATE
   app.post("/books", (req, res) => {
-    const q = "INSERT INTO books(`title`, `desc`, `author`, `cover`, `opinion`, `publisher`, `genre`) VALUES (?)";
+    const query = "INSERT INTO books(`title`, `desc`, `author`, `cover`, `opinion`, `publisher`, `genre`) VALUES (?)";
     const values = [
       req.body.title,
       req.body.desc,
@@ -55,11 +55,21 @@ app.get("/books/fav", (req, res) => {
       req.body.publisher,
       req.body.genre,
     ];
-    db.query(q, [values], (err, data) => {
+    db.query(query, [values], (err, data) => {
       if (err) return res.send(err);
       return res.json("Ton livre a bien été ajouté.");
     });
   });
+
+// DELETE A BOOK = DELETE
+app.delete("/books/:id", (req, res) => {
+  const bookId = req.params.id;
+  const query = "DELETE FROM books WHERE id = ?"
+  db.query(query, [bookId], (err, data) => {
+    if (err) return res.send(err);
+    return res.json("Ton livre a bien été supprimé.");
+  });
+})
   
 
 // BACKEND CONFIG
