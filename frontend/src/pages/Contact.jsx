@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import { Helmet } from "react-helmet";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -34,11 +35,14 @@ function Contact() {
 
   return (
     <div className="lg:flex lg:flex-row md:flex-col sm:flex-col bg-slate-100 overflow-hidden justify-center">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Contact</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="flex flex-col font-bold justify-center items-center text-center ">
         <header role="heading" aria-level="1">
-          <h1 className="text-xl text-center font-bold m-2 p-2">
-            Contact
-          </h1>
+          <h1 className="text-xl text-center font-bold m-2 p-2">Contact</h1>
           <p> Une question ? Une suggestion ?</p>
           <p className="text-yellow-600 mb-6">
             Rendez-vous dans le formulaire ci-dessous.
@@ -49,7 +53,8 @@ function Contact() {
           onSubmit={handleSubmit}
           className="grid justify-items-center"
         >
-          <label className="grid grid-col mb-2 text-sm font-medium">Nom
+          <label className="grid grid-col mb-2 text-sm font-medium">
+            Nom
             <input
               type="text"
               placeholder="Votre nom"
@@ -60,7 +65,8 @@ function Contact() {
               className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
             />
           </label>
-          <label className="grid grid-col mb-2 text-sm font-medium">E-mail
+          <label className="grid grid-col mb-2 text-sm font-medium">
+            E-mail
             <input
               type="email"
               placeholder="Votre e-mail"
@@ -71,7 +77,8 @@ function Contact() {
               className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
             />
           </label>
-          <label className="grid grid-col mb-2 text-sm font-medium">Sujet 
+          <label className="grid grid-col mb-2 text-sm font-medium">
+            Sujet
             <input
               type="text"
               placeholder="Sujet de votre message"
@@ -82,7 +89,8 @@ function Contact() {
               className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
             />
           </label>
-          <label className="grid grid-col mb-2 text-sm font-medium">Message
+          <label className="grid grid-col mb-2 text-sm font-medium">
+            Message
             <textarea
               rows="10"
               placeholder="Votre message"
@@ -108,5 +116,3 @@ function Contact() {
 }
 
 export default Contact;
-
-
