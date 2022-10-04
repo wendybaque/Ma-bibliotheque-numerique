@@ -1,8 +1,70 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import { FirebaseContext } from "../components/Firebase";
 
 const Signup = () => {
+  // Context access
+  const firebase = useContext(FirebaseContext);
+  const data = {
+    pseudo: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+
+  const [signupData, setSignupData] = useState(data);
+
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setSignupData({ ...signupData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = signupData;
+    firebase
+      .signupUser(email, password)
+      .then((user) => {
+        setSignupData({ ...data });
+      })
+      .catch((error) => {
+        setError(error);
+        setSignupData({ ...data });
+      });
+  };
+
+  // Destructuring
+  const { pseudo, email, password, confirmPassword } = signupData;
+
+  // Display of the submit button
+  const displayBtn =
+    pseudo === "" ||
+    email === "" ||
+    password === "" ||
+    password !== confirmPassword ? (
+      <button
+        disabled
+        type="submit"
+        className="hover:animate-bounce cursor-pointer text-grey-300 hover:text-grey-300 bg-yellow-200 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+      >
+        S'insrcrire
+      </button>
+    ) : (
+      <button
+        type="submit"
+        className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+      >
+        S'insrcrire
+      </button>
+    );
+
+  // Management of errors
+  const errorMsg = error !== "" && (
+    <span className="text-red-500 font-bold font-mono">{error.message}</span>
+  );
+
   return (
     <section>
       <Helmet>
@@ -12,7 +74,7 @@ const Signup = () => {
       </Helmet>
       <div className="bg-slate-100">
         <div
-          class="relative overflow-hidden bg-no-repeat bg-cover"
+          className="relative overflow-hidden bg-no-repeat bg-cover"
           style={{
             backgroundPosition: "50%",
             backgroundImage:
@@ -21,15 +83,18 @@ const Signup = () => {
           }}
         >
           <div
-            class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
+            className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.55)" }}
           >
-            <div class="flex justify-center items-center h-full">
-              <div class="text-center text-white px-6 md:px-12">
-                <h1 class="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
+            <div className="flex justify-center items-center h-full">
+              <div className="text-center text-white px-6 md:px-12">
+                <h2 className="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Inscription
-                </h1>
-                <form className="grid justify-items-center">
+                </h2>
+                <form
+                  onSubmit={handleSubmit}
+                  className="grid justify-items-center"
+                >
                   <label
                     htmlFor="pseudo"
                     className="grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
@@ -43,6 +108,8 @@ const Signup = () => {
                       aria-required="true"
                       autoComplete="off"
                       placeholder="Dévoreuse_de_livres"
+                      onChange={handleChange}
+                      value={pseudo}
                     />
                   </label>
                   <label
@@ -58,6 +125,8 @@ const Signup = () => {
                       aria-required="true"
                       autoComplete="off"
                       placeholder="jeanne123@email.com"
+                      onChange={handleChange}
+                      value={email}
                     />
                   </label>
                   <label
@@ -71,6 +140,8 @@ const Signup = () => {
                       id="password"
                       required
                       aria-required="true"
+                      onChange={handleChange}
+                      value={password}
                     />
                   </label>
                   <label
@@ -84,14 +155,13 @@ const Signup = () => {
                       id="confirmPassword"
                       required
                       aria-required="true"
+                      onChange={handleChange}
+                      value={confirmPassword}
                     />
                   </label>
-                  <button
-                    type="submit"
-                    className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
-                  >
-                    S'insrcrire
-                  </button>
+                  {errorMsg}
+
+                  {displayBtn}
                 </form>
               </div>
             </div>

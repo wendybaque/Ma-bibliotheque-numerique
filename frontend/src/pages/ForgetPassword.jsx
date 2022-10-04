@@ -26,9 +26,9 @@ const ForgetPassword = () => {
           >
             <div class="flex justify-center items-center h-full">
               <div class="text-center text-white px-6 md:px-12">
-                <h1 class="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
+                <h2 class="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Récupération du mot de passe
-                </h1>
+                </h2>
                 <form className="grid justify-items-center">
                   <label
                     htmlFor="email"

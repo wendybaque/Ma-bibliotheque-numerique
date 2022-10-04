@@ -34,11 +34,9 @@ const Library = () => {
         <title>Bibliothèque</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <header role="heading" aria-level="1">
-        <h1 className="text-xl text-center font-bold m-2 p-2">
+        <h2 className="text-xl text-center font-bold m-2 p-2">
           Tous mes livres
-        </h1>
-      </header>
+        </h2>
 
       <Link to="/add">
         <button className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6">

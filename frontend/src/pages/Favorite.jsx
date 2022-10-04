@@ -23,11 +23,9 @@ const Favorite = () => {
         <title>Livres favoris</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <header role="heading" aria-level="1">
-        <h1 className="text-xl text-center font-bold m-2 p-2">
+        <h2 className="text-xl text-center font-bold m-2 p-2">
           Mes livres favoris
-        </h1>
-      </header>
+        </h2>
 
       {favs.map((book) => (
         <div className="p-2 " key={book.id}>
