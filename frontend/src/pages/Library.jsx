@@ -34,19 +34,19 @@ const Library = () => {
         <title>Bibliothèque</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-        <h2 className="text-xl text-center font-bold m-2 p-2">
-          Tous mes livres
-        </h2>
+      <h2 className="text-xl text-center font-bold m-2 p-2">Tous mes livres</h2>
 
       <Link to="/add">
         <button className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6">
           Ajouter un nouveau livre
         </button>
       </Link>
-
-      {books.map((book) => (
-        <div className="p-2 flex flex-row justify-center" key={book.id}>
-          <div className="m-6 transform transition duration-400 hover:scale-110 text-center w-72 p-2 bg-white rounded-lg border border-gray-200 shadow-md">
+      <div className="p-2 grid grid-cols-4 gap-4">
+        {books.map((book) => (
+          <div
+            key={book.id}
+            className="m-6 transform transition duration-400 hover:scale-110 text-center w-72 p-2 bg-white rounded-lg border border-gray-200 shadow-md"
+          >
             {book.cover && (
               <img
                 src={book.cover}
@@ -80,8 +80,8 @@ const Library = () => {
               </button>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

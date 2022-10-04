@@ -23,13 +23,16 @@ const Favorite = () => {
         <title>Livres favoris</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-        <h2 className="text-xl text-center font-bold m-2 p-2">
-          Mes livres favoris
-        </h2>
+      <h2 className="text-xl text-center font-bold m-2 p-2">
+        Mes livres favoris
+      </h2>
 
-      {favs.map((book) => (
-        <div className="p-2 " key={book.id}>
-          <div className="m-6 transform transition duration-400 hover:scale-110 text-center w-72 p-2 bg-white rounded-lg border border-gray-200 shadow-md">
+      <div className="p-2 grid grid-cols-4 gap-4">
+        {favs.map((book) => (
+          <div
+            key={book.id}
+            className="m-6 transform transition duration-400 hover:scale-110 text-center w-72 p-2 bg-white rounded-lg border border-gray-200 shadow-md"
+          >
             {book.cover && (
               <img
                 src={book.cover}
@@ -44,10 +47,10 @@ const Favorite = () => {
             <h3 className="italic">{book.desc}</h3>
             <h3>{book.genre}</h3>
             <h3>{book.publisher}</h3>
-            <h3 className="italic">{book.opinion}/5</h3>
+            <h3 className="italic font-bold">{book.opinion}/5</h3>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

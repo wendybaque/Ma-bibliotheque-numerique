@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FirebaseContext } from "../components/Firebase";
 
 const Signup = () => {
+  const navigate = useNavigate();
   // Context access
   const firebase = useContext(FirebaseContext);
   const data = {
@@ -28,6 +29,7 @@ const Signup = () => {
       .signupUser(email, password)
       .then((user) => {
         setSignupData({ ...data });
+        navigate("/library");
       })
       .catch((error) => {
         setError(error);
@@ -160,7 +162,6 @@ const Signup = () => {
                     />
                   </label>
                   {errorMsg}
-
                   {displayBtn}
                 </form>
               </div>
