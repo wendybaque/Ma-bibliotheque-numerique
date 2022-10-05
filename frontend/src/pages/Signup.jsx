@@ -64,7 +64,7 @@ const Signup = () => {
 
   // Management of errors
   const errorMsg = error !== "" && (
-    <span className="text-red-500 font-bold font-mono">{error.message}</span>
+    <span className="text-red-500 font-bold font-mono m-2">{error.message}</span>
   );
 
   return (
