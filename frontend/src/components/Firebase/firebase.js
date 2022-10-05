@@ -29,7 +29,7 @@ class Firebase {
   // Signout
   signoutUser = () => this.auth.signOut();
 
-  // Restore password
+  // Reset password
   passwordReset = (email) => this.auth.sendPasswordResetEmail(email);
 
   // Cloud Firestore
