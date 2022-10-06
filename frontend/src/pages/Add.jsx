@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 const Add = () => {
   const [newBook, setNewBook] = useState({
@@ -40,10 +41,11 @@ const Add = () => {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="flex flex-col font-bold justify-center items-center text-center ">
-          <h2 className="text-xl text-center font-bold m-2 p-2">
-            Ajouter un livre
-          </h2>
-          <form className="grid justify-items-center">
+        <h2 className="text-xl text-center font-bold m-2 p-2">
+          Ajouter un livre
+        </h2>
+        <form className="grid justify-items-center">
+          <Fade>
             <label className="grid grid-col mb-2 text-sm font-medium">
               Titre du livre
               <input
@@ -111,10 +113,14 @@ const Add = () => {
             </label>
             <label className="grid grid-col mb-2 text-sm font-medium">
               Avis sur le livre (note /5)
-              <select name="opinion" onChange={handleChange}  required
-              aria-required="true"
-              autoComplete="off"
-              className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal">
+              <select
+                name="opinion"
+                onChange={handleChange}
+                required
+                aria-required="true"
+                autoComplete="off"
+                className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+              >
                 <option>0</option>
                 <option>1</option>
                 <option>2</option>
@@ -143,7 +149,8 @@ const Add = () => {
             >
               Ajouter ce livre
             </button>
-          </form>
+          </Fade>
+        </form>
       </div>
     </div>
   );
