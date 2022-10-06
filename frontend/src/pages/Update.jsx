@@ -44,11 +44,9 @@ const Update = () => {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="flex flex-col font-bold justify-center items-center text-center ">
-        <header role="heading" aria-level="1">
-          <h1 className="text-xl text-center font-bold m-2 p-2">
+          <h2 className="text-xl text-center font-bold m-2 p-2">
             Modifier un livre
-          </h1>
-        </header>
+          </h2>
         <form>
           <label className="grid grid-col mb-2 text-sm font-medium">
             Titre du livre

@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FirebaseContext } from "../components/Firebase";
 
 const ForgetPassword = () => {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+
+  const [success, setSuccess] = useState(null);
+
+  const [error, setError] = useState(null);
+
+  const firebase = useContext(FirebaseContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    firebase
+      .passwordReset(email)
+      .then(() => {
+        setError(null);
+        setSuccess(
+          `Votre mot de passe a été envoyé sur votre adresse e-mail : ${email}.`
+        );
+        setEmail("");
+        setTimeout(() => {
+          navigate("/");
+        }, 5000);
+      })
+      .catch((error) => {
+        setError(error);
+        setEmail("");
+      });
+  };
+
+  const disabled = email === "";
+
   return (
     <section>
       <Helmet>
@@ -26,10 +59,13 @@ const ForgetPassword = () => {
           >
             <div class="flex justify-center items-center h-full">
               <div class="text-center text-white px-6 md:px-12">
-                <h1 class="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
+                <h2 class="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Récupération du mot de passe
-                </h1>
-                <form className="grid justify-items-center">
+                </h2>
+                <form
+                  onSubmit={handleSubmit}
+                  className="grid justify-items-center"
+                >
                   <label
                     htmlFor="email"
                     className="grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
@@ -42,28 +78,27 @@ const ForgetPassword = () => {
                       aria-required="true"
                       autoComplete="off"
                       placeholder="jeanne123@email.com"
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
                     />
                   </label>
-                  <label
-                    htmlFor="password"
-                    className="grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
-                  >
-                    Mot de passe
-                    <input
-                      className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                      type="password"
-                      required
-                      aria-required="true"
-                      autoComplete="off"
-                    />
-                  </label>
-
+                  {error && (
+                    <span className="text-red-500 font-bold font-mono m-2">
+                      {error.message}
+                    </span>
+                  )}
                   <button
+                    disabled={disabled}
                     type="submit"
                     className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
                   >
                     Récupérer mon mot de passe
                   </button>
+                  {success && (
+                    <span className="text-green-500 font-bold font-mono m-2">
+                      {success}
+                    </span>
+                  )}
                 </form>
               </div>
             </div>

@@ -6,18 +6,18 @@ export default function Header() {
     <div className="bg-slate-100">
       {/* Overlay */}
         <div
-          class="relative overflow-hidden bg-no-repeat bg-cover"
+          className="relative overflow-hidden bg-no-repeat bg-cover"
           style={{backgroundPosition: "50%",
             backgroundImage: "url('https://cdn.pixabay.com/photo/2017/08/07/03/22/books-2599241__480.jpg",
             height: "400px"}}
         >
           <div
-            class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
+            className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
             style={{backgroundColor: "rgba(0, 0, 0, 0.55)"}}
           >
-            <div class="flex justify-center items-center h-full">
-              <div class="text-center text-white px-6 md:px-12">
-                <h1 class="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
+            <div className="flex justify-center items-center h-full">
+              <div className="text-center text-white px-6 md:px-12">
+                <h1 className="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                 Vous aussi, vous lisez beaucoup ? <br />
           Vous souhaitez retrouver rapidement et simplement tous les livres que
           vous avez lus ?

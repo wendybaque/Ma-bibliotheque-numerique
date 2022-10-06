@@ -22,7 +22,7 @@ const Page404 = () => {
         <div className="px-4 lg:py-12">
           <div className="lg:gap-4 lg:flex">
             <div className="flex flex-col items-center justify-center md:py-24 lg:py-32">
-              <h1 className="font-bold text-yellow-600 text-9xl">404</h1>
+              <h2 className="font-bold text-yellow-600 text-9xl">404</h2>
               <p className="mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">
                 <span className="text-red-500">Oups!</span> Il n'y pas de livre
                 par ici.

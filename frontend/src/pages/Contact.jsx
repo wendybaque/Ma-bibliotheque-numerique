@@ -41,13 +41,11 @@ function Contact() {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="flex flex-col font-bold justify-center items-center text-center ">
-        <header role="heading" aria-level="1">
-          <h1 className="text-xl text-center font-bold m-2 p-2">Contact</h1>
+          <h2 className="text-xl text-center font-bold m-2 p-2">Contact</h2>
           <p> Une question ? Une suggestion ?</p>
           <p className="text-yellow-600 mb-6">
             Rendez-vous dans le formulaire ci-dessous.
           </p>
-        </header>
         <form
           ref={formRef}
           onSubmit={handleSubmit}
