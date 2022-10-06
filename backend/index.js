@@ -18,7 +18,7 @@ app.get("/books", (req, res) => {
   const query = "SELECT * FROM books";
   db.query(query, (err, data) => {
     if (err) return res.json(err);
-    return res.json(data);
+    return res.status(200).json(data);
   });
 });
 
@@ -27,7 +27,7 @@ app.get("/books/az", (req, res) => {
   const query = "SELECT * FROM books ORDER BY title ASC";
   db.query(query, (err, data) => {
     if (err) return res.json(err);
-    return res.json(data);
+    return res.status(200).json(data);
   });
 });
 
@@ -39,7 +39,7 @@ app.get("/books/fav", (req, res) => {
       console.log(err);
       return res.json(err);
     }
-    return res.json(data);
+    return res.status(200).json(data);
   });
 });
 
@@ -58,7 +58,7 @@ app.post("/books", (req, res) => {
   ];
   db.query(query, [values], (err, data) => {
     if (err) return res.send(err);
-    return res.json("Ton livre a bien été ajouté");
+    return res.status(200).json("Ton livre a bien été ajouté");
   });
 });
 
@@ -68,7 +68,7 @@ app.delete("/books/:id", (req, res) => {
   const query = "DELETE FROM books WHERE id = ?";
   db.query(query, [bookId], (err, data) => {
     if (err) return res.send(err);
-    return res.json("Ton livre a bien été supprimé.");
+    return res.status(200).json("Ton livre a bien été supprimé.");
   });
 });
 
@@ -88,7 +88,7 @@ app.put("/books/:id", (req, res) => {
   ];
   db.query(query, [...values, bookId], (err, data) => {
     if (err) return res.send(err);
-    return res.json("Ton livre a bien été modifié.");
+    return res.status(200).json("Ton livre a bien été modifié.");
   });
 });
 
