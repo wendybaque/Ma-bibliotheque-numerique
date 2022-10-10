@@ -1,56 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>/</loc>
-      <lastmod>2022-09-29</lastmod>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/</loc>
+      <lastmod>2022-10-10</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc></loc>
-      <lastmod>2022-09-29</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-      <url>
-      <loc></loc>
-      <lastmod>2022-09-29</lastmod>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/library</loc>
+      <lastmod>2022-10-10</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc></loc>
-      <lastmod>2022-09-29</lastmod>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/add</loc>
+      <lastmod>2022-10-10</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://checkpoint-4-wendybaque.vercel.app/favorite</loc>
-      <lastmod>2022-09-28</lastmod>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/update</loc>
+      <lastmod>2022-10-10</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/signin</loc>
+      <lastmod>2022-10-10</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
       <url>
-      <loc>https://checkpoint-4-wendybaque.vercel.app/search</loc>
-      <lastmod>2022-09-28</lastmod>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/signup</loc>
+      <lastmod>2022-10-10</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-      <url>
-      <loc>https://checkpoint-4-wendybaque.vercel.app/connexion</loc>
-      <lastmod>2022-09-28</lastmod>
+   <url>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/forgetpassword</loc>
+      <lastmod>2022-10-10</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-      <url>
-      <loc>https://checkpoint-4-wendybaque.vercel.app/inscription</loc>
-      <lastmod>2022-09-28</lastmod>
+   <url>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/favorite</loc>
+      <lastmod>2022-10-10</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-      <url>
-      <loc>https://checkpoint-4-wendybaque.vercel.app/forgetpassword</loc>
-      <lastmod>2022-09-28</lastmod>
+   <url>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/search</loc>
+      <lastmod>2022-10-10</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/contact</loc>
+      <lastmod>2022-10-10</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ma-bibliotheque-numerique.vercel.app/page404</loc>
+      <lastmod>2022-10-10</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
