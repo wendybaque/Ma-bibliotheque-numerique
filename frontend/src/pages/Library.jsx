@@ -6,6 +6,9 @@ import axios from "axios";
 import Logout from "../components/Logout";
 
 const Library = () => {
+
+  const port = process.env.PORT ?? 5000;
+
   const navigate = useNavigate();
 
   const [books, setBooks] = useState([]);
@@ -43,7 +46,7 @@ const Library = () => {
   useEffect(() => {
     const fetchAllBooks = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/books");
+        const res = await axios.get(`http://localhost:${port}/books`);
         setBooks(res.data);
       } catch (err) {
         console.log(err);
@@ -54,7 +57,7 @@ const Library = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete("http://localhost:5000/books/" + id);
+      await axios.delete(`http://localhost:${port}/books/${id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);

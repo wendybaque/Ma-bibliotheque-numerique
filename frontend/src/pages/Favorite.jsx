@@ -3,12 +3,15 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 
 const Favorite = () => {
+
+  const port = process.env.PORT ?? 5000;
+
   const [favs, setFavs] = useState([]);
 
   useEffect(() => {
     const fetchFavBooks = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/books/fav");
+        const res = await axios.get(`http://localhost:${port}/books/fav`);
         setFavs(res.data);
       } catch (err) {
         console.log(err);
