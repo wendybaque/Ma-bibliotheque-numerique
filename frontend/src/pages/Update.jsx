@@ -5,6 +5,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 
 const Update = () => {
+
+  const port = process.env.PORT ?? 5000;
+
   const [updateBook, setUpdateBook] = useState({
     title: "",
     desc: "",
@@ -29,7 +32,7 @@ const Update = () => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:5000/books/${bookId}`, updateBook);
+      await axios.put(`http://localhost:${port}/books/${bookId}`, updateBook);
       navigate("/library");
     } catch (err) {
       console.log(err);
