@@ -53,7 +53,7 @@ const Library = () => {
       }
     };
     fetchAllBooks();
-  }, []);
+  }, [port]);
 
   const handleDelete = async (id) => {
     try {

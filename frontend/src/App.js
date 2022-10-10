@@ -14,6 +14,7 @@ import Search from "../src/pages/Search";
 import Favorite from "../src/pages/Favorite";
 import Contact from "../src/pages/Contact";
 import Page404 from "../src/pages/Page404";
+import ButtonTop from './components/ButtonTop';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="*" element={<Page404 />} />
         </Routes>
       </Router>
+      <ButtonTop />
       <Footer />
     </div>
   );
