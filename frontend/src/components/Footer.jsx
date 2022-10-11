@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-100 rounded-lg grid grid-cols-2 gap-3 p-8">
+    <footer className="h-20 bg-slate-100 dark:bg-slate-800 grid grid-cols-2 gap-3 p-8">
       <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
         Copyright© 2022. All Rights Reserved.
       </span>

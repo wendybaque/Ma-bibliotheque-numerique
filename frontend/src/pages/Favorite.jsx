@@ -20,13 +20,13 @@ const Favorite = () => {
     fetchFavBooks();
   }, []);
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100 dark:bg-slate-800">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Livres favoris</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <h2 className="text-xl text-center font-bold m-2 p-2">
+      <h2 className="text-xl text-center text-black dark:text-white font-bold m-2 p-2">
         Mes livres favoris
       </h2>
 

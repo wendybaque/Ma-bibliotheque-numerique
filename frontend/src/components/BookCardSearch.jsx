@@ -17,7 +17,7 @@ function BookCardSearch({
   const toggle = () => setModal(!modal);
 
   return (
-    <div className="m-6 justify-self-center transform transition duration-400 hover:scale-110 flex flex-col justify-center text-center w-72 p-2 bg-white rounded-lg border border-gray-200 shadow-md">
+    <div className="m-6 justify-self-center transform transition duration-400 hover:scale-110 flex flex-col justify-center text-center w-72 p-2 bg-white dark:bg-slate-400 rounded-lg border border-gray-200 shadow-md">
       <img
         top
         style={{ width: "100%", height: "233px" }}
@@ -25,10 +25,10 @@ function BookCardSearch({
         alt={title}
       />
       <div className="text-ellipsis overflow-hidden">
-        <div className=" font-mono font-bold text-yellow-900 p-2">{title}</div>
+        <div className=" font-mono font-bold text-yellow-900 dark:text-yellow-600 p-2">{title}</div>
         <button
           type="button"
-          className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+          className="hover:animate-bounce cursor-pointer text-white dark:text-black hover:text-white bg-yellow-600 dark:bg-yellow-900 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
           onClick={toggle}
         >
           En savoir plus
