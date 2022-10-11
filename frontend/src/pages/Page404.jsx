@@ -12,7 +12,7 @@ const Page404 = () => {
   });
 
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100 dark:bg-slate-800">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Oups ! Error 404</title>
@@ -22,12 +22,12 @@ const Page404 = () => {
         <div className="px-4 lg:py-12">
           <div className="lg:gap-4 lg:flex">
             <div className="flex flex-col items-center justify-center md:py-24 lg:py-32">
-              <h2 className="font-bold text-yellow-600 text-9xl">404</h2>
-              <p className="mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">
+              <h2 className="font-bold text-yellow-600 text-9xl  dark:text-white">404</h2>
+              <p className="mb-2 text-2xl font-bold text-center text-gray-800 dark:text-slate-100 md:text-3xl">
                 <span className="text-red-500">Oups!</span> Il n'y pas de livre
                 par ici.
               </p>
-              <p className="mb-8 text-center text-gray-500 md:text-lg">
+              <p className="mb-8 text-center text-gray-500 dark:text-slate-100 md:text-lg">
                 Tu vas être redirigé à l'accueil.
               </p>
             </div>

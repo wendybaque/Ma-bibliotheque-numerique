@@ -43,7 +43,7 @@ const ForgetPassword = () => {
         <title>Mot de passe oublié</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="bg-slate-100">
+      <div className="bg- dark:bg-slate-800">
         <div
           class="relative overflow-hidden bg-no-repeat bg-cover"
           style={{
@@ -58,7 +58,7 @@ const ForgetPassword = () => {
             style={{ backgroundColor: "rgba(0, 0, 0, 0.55)" }}
           >
             <div class="flex justify-center items-center h-full">
-              <div class="text-center text-white px-6 md:px-12">
+              <div class="text-center text-white dark:text-black px-6 md:px-12">
                 <h2 class="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Récupération du mot de passe
                 </h2>
@@ -68,7 +68,7 @@ const ForgetPassword = () => {
                 >
                   <label
                     htmlFor="email"
-                    className="grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
+                    className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white"
                   >
                     E-mail
                     <input
@@ -107,7 +107,7 @@ const ForgetPassword = () => {
         <Link to="/signup">
           <button
             type="button"
-            className="animate-pulse p-3 flex flex-col cursor-pointer"
+            className="animate-pulse p-3 flex flex-col cursor-pointer  text-black dark:text-white"
           >
             Vous n'avez pas de compte ? Inscrivez-vous.
           </button>

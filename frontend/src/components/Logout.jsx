@@ -34,7 +34,7 @@ function Logout() {
           className="sr-only peer"
           onChange={handleChange}
         />
-        <div className="w-12 h-6 bg-yellow-600 rounded-full peer peer-focus:ring-4 peer-focus:ring-yellow-600 dark:peer-focus:ring-yellow-900 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-yellow-900 sm:peer-checked:bg-yellow-600" />
+        <div className="w-12 h-6 bg-yellow-600 rounded-full peer peer-focus:ring-4 peer-focus:ring-yellow-600 dark:peer-focus:ring-yellow-900 dark:bg-gray-500 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-100 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-100 peer-checked:bg-yellow-900 sm:peer-checked:bg-yellow-600" />
         <ReactTooltip place="left" effect="solid" />
       </label>
     </div>

@@ -24,10 +24,10 @@ function Contact() {
     event.preventDefault();
     emailjs
       .sendForm(
-        "service_u2fklzg",
-        "template_rl2rmjf",
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_EMAIL_TEMPLATE,
         formRef.current,
-        "kCM4-loc5pRO7-hUK"
+        process.env.REACT_APP_PUBLIC_KEY
       )
       .then(
         (result) => {
@@ -49,15 +49,15 @@ function Contact() {
   }, [name, email, subject, message, btn]);
 
   return (
-    <div className="lg:flex lg:flex-row md:flex-col sm:flex-col bg-slate-100 overflow-hidden justify-center">
+    <div className="lg:flex lg:flex-row md:flex-col sm:flex-col bg-slate-100 dark:bg-slate-800 overflow-hidden justify-center">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Contact</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="flex flex-col font-bold justify-center items-center text-center ">
-        <h2 className="text-xl text-center font-bold m-2 p-2">Contact</h2>
-        <p> Une question ? Une suggestion ?</p>
+        <h2 className="text-xl text-center text-black dark:text-white font-bold m-2 p-2">Contact</h2>
+        <p className="text-black dark:text-white"> Une question ? Une suggestion ?</p>
         <p className="text-yellow-600 mb-6">
           Rendez-vous dans le formulaire ci-dessous.
         </p>
@@ -67,7 +67,7 @@ function Contact() {
           className="grid justify-items-center"
         >
           <Fade>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Nom
               <input
                 type="text"
@@ -81,7 +81,7 @@ function Contact() {
                 value={name}
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               E-mail
               <input
                 type="email"
@@ -95,7 +95,7 @@ function Contact() {
                 value={email}
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Sujet
               <input
                 type="text"
@@ -109,7 +109,7 @@ function Contact() {
                 value={subject}
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Message
               <textarea
                 rows="10"

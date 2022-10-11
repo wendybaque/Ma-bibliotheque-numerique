@@ -80,7 +80,7 @@ const Signup = () => {
         <title>Inscription</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="bg-slate-100">
+      <div className="bg-slate-100 dark:bg-slate-800">
         <div
           className="relative overflow-hidden bg-no-repeat bg-cover"
           style={{
@@ -177,7 +177,7 @@ const Signup = () => {
         <Link to="/signin">
           <button
             type="button"
-            className="animate-pulse p-3 flex flex-col cursor-pointer"
+            className="animate-pulse p-3 flex flex-col cursor-pointer text-white dark:text-white"
           >
             Vous avez déjà un compte ? Connectez-vous.
           </button>

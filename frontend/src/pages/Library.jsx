@@ -6,7 +6,6 @@ import axios from "axios";
 import Logout from "../components/Logout";
 
 const Library = () => {
-
   const port = process.env.PORT ?? 5000;
 
   const navigate = useNavigate();
@@ -86,20 +85,20 @@ const Library = () => {
       <span className="sr-only">Loading...</span>
     </div>
   ) : (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100 dark:bg-slate-800">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Bibliothèque</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <h2 className="text-xl text-center font-bold m-2 p-2">Tous mes livres</h2>
+      <h2 className="text-xl text-center font-bold m-2 p-2 text-black dark:text-white">Tous mes livres</h2>
 
-        <div className="p-2 m-2 grid grid-cols-4 gap-3">
-          <h3 className="font-mono text-yellow-900">
-            Bienvenue dans ta bibliothèque numérique,
-            {`${userData.pseudo}`} !
-          </h3>
-          <Logout />
+      <div className="p-2 m-2 grid grid-cols-4 gap-3">
+        <h3 className="font-mono text-yellow-900 dark:text-yellow-600">
+          Bienvenue dans ta bibliothèque numérique,
+          {`${userData.pseudo}`} !
+        </h3>
+        <Logout />
       </div>
       <div className="p-2 grid grid-cols-4 gap-4">
         {books.map((book) => (
@@ -143,10 +142,10 @@ const Library = () => {
         ))}
       </div>
       <Link to="/add">
-          <button className="bottom-1/4 items-center hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6">
-            Ajouter un nouveau livre
-          </button>
-        </Link>
+        <button className="bottom-1/4 items-center hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6">
+          Ajouter un nouveau livre
+        </button>
+      </Link>
     </div>
   );
 };

@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 
 const Add = () => {
+
+  const port = process.env.PORT ?? 5000;
+ 
   const [newBook, setNewBook] = useState({
     title: "",
     desc: "",
@@ -24,29 +27,27 @@ const Add = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/books", newBook);
+      await axios.post(`http://localhost:${port}/books`, newBook);
       navigate("/library");
     } catch (err) {
       console.log(err);
     }
   };
-
-  console.log(newBook);
-
+  
   return (
-    <div className="lg:flex lg:flex-row md:flex-col sm:flex-col bg-slate-100 overflow-hidden justify-center">
+    <div className="lg:flex lg:flex-row md:flex-col sm:flex-col bg-slate-100 dark:bg-slate-800 overflow-hidden justify-center">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Ajouter un livre</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="flex flex-col font-bold justify-center items-center text-center ">
-        <h2 className="text-xl text-center font-bold m-2 p-2">
+        <h2 className="text-xl text-center text-black dark:text-white font-bold m-2 p-2">
           Ajouter un livre
         </h2>
         <form className="grid justify-items-center">
           <Fade>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Titre du livre
               <input
                 type="text"
@@ -59,7 +60,7 @@ const Add = () => {
                 className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Auteur du livre
               <input
                 type="text"
@@ -72,7 +73,7 @@ const Add = () => {
                 className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Genre du livre
               <input
                 type="text"
@@ -85,7 +86,7 @@ const Add = () => {
                 className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Editeur du livre
               <input
                 type="text"
@@ -98,7 +99,7 @@ const Add = () => {
                 className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Résumé du livre
               <textarea
                 type="text"
@@ -111,7 +112,7 @@ const Add = () => {
                 className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Avis sur le livre (note /5)
               <select
                 name="opinion"
@@ -129,7 +130,7 @@ const Add = () => {
                 <option>5</option>
               </select>
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium">
+            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Couverture du livre (url)
               <input
                 type="text"

@@ -41,7 +41,7 @@ const Update = () => {
   };
 
   return (
-    <div className="lg:flex lg:flex-row md:flex-col sm:flex-col bg-slate-100 overflow-hidden justify-center">
+    <div className="lg:flex lg:flex-row md:flex-col sm:flex-col bg-slate-100 dark:bg-slate-800 overflow-hidden justify-center">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Modifier un livre</title>
