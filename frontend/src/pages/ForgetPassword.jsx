@@ -43,7 +43,7 @@ const ForgetPassword = () => {
         <title>Mot de passe oublié</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="bg- dark:bg-slate-800">
+      <div className="bg-slate-100 dark:bg-slate-800">
         <div
           class="relative overflow-hidden bg-no-repeat bg-cover"
           style={{
@@ -59,7 +59,7 @@ const ForgetPassword = () => {
           >
             <div class="flex justify-center items-center h-full">
               <div class="text-center text-white dark:text-black px-6 md:px-12">
-                <h2 class="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
+                <h2 class="font-poppins text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Récupération du mot de passe
                 </h2>
                 <form
@@ -68,11 +68,11 @@ const ForgetPassword = () => {
                 >
                   <label
                     htmlFor="email"
-                    className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white"
+                    className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-white"
                   >
                     E-mail
                     <input
-                      className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                      className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                       type="email"
                       required
                       aria-required="true"
@@ -83,19 +83,19 @@ const ForgetPassword = () => {
                     />
                   </label>
                   {error && (
-                    <span className="text-red-500 font-bold font-mono m-2">
+                    <span className="text-red-500 font-bold font-poppins m-2">
                       {error.message}
                     </span>
                   )}
                   <button
                     disabled={disabled}
                     type="submit"
-                    className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+                    className="font-open hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
                   >
                     Récupérer mon mot de passe
                   </button>
                   {success && (
-                    <span className="text-green-500 font-bold font-mono m-2">
+                    <span className="text-green-500 font-bold font-poppins m-2">
                       {success}
                     </span>
                   )}
@@ -107,7 +107,7 @@ const ForgetPassword = () => {
         <Link to="/signup">
           <button
             type="button"
-            className="animate-pulse p-3 flex flex-col cursor-pointer  text-black dark:text-white"
+            className="font-open animate-pulse p-3 flex flex-col cursor-pointer  text-black dark:text-white"
           >
             Vous n'avez pas de compte ? Inscrivez-vous.
           </button>

@@ -25,7 +25,9 @@ function BookCardSearch({
         alt={title}
       />
       <div className="text-ellipsis overflow-hidden">
-        <div className=" font-mono font-bold text-yellow-900 dark:text-yellow-600 p-2">{title}</div>
+        <div className="font-poppins font-bold text-yellow-900 dark:text-yellow-600 p-2">
+          {title}
+        </div>
         <button
           type="button"
           className="hover:animate-bounce cursor-pointer text-white dark:text-black hover:text-white bg-yellow-600 dark:bg-yellow-900 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
@@ -54,10 +56,10 @@ function BookCardSearch({
           <div className="d-flex justify-content-between ml-3">
             <img src={thumbnail} alt={title} style={{ height: "233px" }} />
             <div>
-              <p>Nombre de pages: {pageCount}</p>
-              <p>Langue : {language}</p>
-              <p>Auteur(s) : {authors}</p>
-              <p>Editeur: {publisher}</p>
+              <p className="font-open ">Nombre de pages: {pageCount}</p>
+              <p className="font-open">Langue : {language}</p>
+              <p className="font-open">Auteur(s) : {authors}</p>
+              <p className="font-open">Editeur: {publisher}</p>
             </div>
           </div>
           <div className="mt-3">{description}</div>

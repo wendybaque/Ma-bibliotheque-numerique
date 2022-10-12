@@ -63,21 +63,25 @@ const Signin = () => {
           >
             <div className="flex justify-center items-center h-full">
               <div className="text-center text-white px-6 md:px-12">
-                <h2 className="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
+                <h2 className="font-poppins text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Connexion
                 </h2>
-                {error !== "" && <span className="text-red-500 font-bold font-mono m-2">{error.message}</span>}
+                {error !== "" && (
+                  <span className="text-red-500 font-bold font-poppins m-2">
+                    {error.message}
+                  </span>
+                )}
                 <form
                   onSubmit={handleSubmit}
                   className="grid justify-items-center"
                 >
                   <label
                     htmlFor="email"
-                    className="grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
+                    className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
                   >
                     E-mail
                     <input
-                      className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                      className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                       type="email"
                       required
                       aria-required="true"
@@ -89,11 +93,11 @@ const Signin = () => {
                   </label>
                   <label
                     htmlFor="password"
-                    className="grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
+                    className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
                   >
                     Mot de passe
                     <input
-                      className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                      className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                       type="password"
                       required
                       aria-required="true"
@@ -105,7 +109,7 @@ const Signin = () => {
                   {btn ? (
                     <button
                       type="submit"
-                      className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+                      className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
                     >
                       Se connecter
                     </button>
@@ -113,7 +117,7 @@ const Signin = () => {
                     <button
                       disabled
                       type="submit"
-                      className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-200 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+                      className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-200 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
                     >
                       Se connecter
                     </button>
@@ -122,7 +126,7 @@ const Signin = () => {
                 <Link to="/forgetpassword">
                   <button
                     type="button"
-                    className="p-6 cursor-pointer text-red-400 text-bold"
+                    className="font-poppins p-6 cursor-pointer text-red-400 text-bold"
                   >
                     Mot de passe oublié ?
                   </button>
@@ -134,7 +138,7 @@ const Signin = () => {
         <Link to="/signup">
           <button
             type="button"
-            className="animate-pulse p-3 flex flex-col cursor-pointer "
+            className="font-poppins animate-pulse p-3 flex flex-col cursor-pointer "
           >
             Vous n'avez pas de compte ? Inscrivez-vous.
           </button>

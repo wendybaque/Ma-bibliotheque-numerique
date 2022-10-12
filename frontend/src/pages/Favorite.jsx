@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 
 const Favorite = () => {
-
   const port = process.env.PORT ?? 5000;
 
   const [favs, setFavs] = useState([]);
@@ -26,7 +25,7 @@ const Favorite = () => {
         <title>Livres favoris</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <h2 className="text-xl text-center text-black dark:text-white font-bold m-2 p-2">
+      <h2 className="font-poppins text-xl text-center text-black dark:text-white font-bold m-2 p-2">
         Mes livres favoris
       </h2>
 
@@ -43,14 +42,14 @@ const Favorite = () => {
                 className="rounded-lg h-72 w-64"
               />
             )}
-            <h2 className="font-mono font-bold text-yellow-600 p-2 m-2">
+            <h2 className="font-poppins font-bold text-yellow-600 p-2 m-2">
               {book.title}
             </h2>
-            <h2 className="font-mono font-bold">{book.author}</h2>
-            <h3 className="italic">{book.desc}</h3>
-            <h3>{book.genre}</h3>
-            <h3>{book.publisher}</h3>
-            <h3 className="italic font-bold">{book.opinion}/5</h3>
+            <h2 className="font-poppins font-bold">{book.author}</h2>
+            <h3 className="font-open italic">{book.desc}</h3>
+            <h3 className="font-open">{book.genre}</h3>
+            <h3 className="font-open">{book.publisher}</h3>
+            <h3 className="font-open italic font-bold">{book.opinion}/5</h3>
           </div>
         ))}
       </div>

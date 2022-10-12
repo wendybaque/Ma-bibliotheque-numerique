@@ -31,7 +31,7 @@ const Signup = () => {
         return firebase.user(authUser.user.uid).set({
           pseudo,
           email,
-        })
+        });
       })
       .then(() => {
         setSignupData({ ...data });
@@ -70,7 +70,9 @@ const Signup = () => {
 
   // Management of errors
   const errorMsg = error !== "" && (
-    <span className="text-red-500 font-bold font-mono m-2">{error.message}</span>
+    <span className="text-red-500 font-bold font-poppins m-2">
+      {error.message}
+    </span>
   );
 
   return (
@@ -96,7 +98,7 @@ const Signup = () => {
           >
             <div className="flex justify-center items-center h-full">
               <div className="text-center text-white px-6 md:px-12">
-                <h2 className="text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
+                <h2 className="font-poppins text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Inscription
                 </h2>
                 <form
@@ -105,11 +107,11 @@ const Signup = () => {
                 >
                   <label
                     htmlFor="pseudo"
-                    className="grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
+                    className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
                   >
                     Pseudo
                     <input
-                      className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                      className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                       type="text"
                       id="pseudo"
                       required
@@ -122,11 +124,11 @@ const Signup = () => {
                   </label>
                   <label
                     htmlFor="email"
-                    className="grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
+                    className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
                   >
                     E-mail
                     <input
-                      className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                      className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                       type="email"
                       id="email"
                       required
@@ -139,11 +141,11 @@ const Signup = () => {
                   </label>
                   <label
                     htmlFor="password"
-                    className="grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
+                    className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
                   >
                     Mot de passe
                     <input
-                      className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                      className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                       type="password"
                       id="password"
                       required
@@ -154,11 +156,11 @@ const Signup = () => {
                   </label>
                   <label
                     htmlFor="confirmPassword"
-                    className="grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
+                    className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
                   >
                     Confirmer le mot de passe
                     <input
-                      className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                      className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                       type="password"
                       id="confirmPassword"
                       required
@@ -177,7 +179,7 @@ const Signup = () => {
         <Link to="/signin">
           <button
             type="button"
-            className="animate-pulse p-3 flex flex-col cursor-pointer text-white dark:text-white"
+            className="font-poppins animate-pulse p-3 flex flex-col cursor-pointer text-black dark:text-white"
           >
             Vous avez déjà un compte ? Connectez-vous.
           </button>

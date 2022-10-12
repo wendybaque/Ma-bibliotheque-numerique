@@ -58,7 +58,7 @@ function Search() {
         >
           <div className="flex justify-center items-center h-full">
             <div className="text-center text-white px-6 md:px-12">
-              <h2 className="text-xl text-black dark:text-white md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
+              <h2 className="font-poppins text-xl text-white md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                 Rechercher un livre
               </h2>
               <div className="mb-3">
@@ -93,9 +93,11 @@ function Search() {
                   />
                 </form>
                 <form className="ml-5">
-                  <label htmlFor="startIndex">Démarrer à l'index...</label>
+                  <label htmlFor="startIndex" className="font-open">
+                    Démarrer à l'index...
+                  </label>
                   <input
-                    className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                    className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                     type="number"
                     id="startIndex"
                     placeholder="Ex: 1"
@@ -159,7 +161,11 @@ function Search() {
         </div>
       );
     });
-    return <div className="bg-slate-100 dark:bg-slate-800 grid grid-cols-4 gap-4">{items}</div>;
+    return (
+      <div className="bg-slate-100 dark:bg-slate-800 grid grid-cols-4 gap-4">
+        {items}
+      </div>
+    );
   };
   return (
     <>

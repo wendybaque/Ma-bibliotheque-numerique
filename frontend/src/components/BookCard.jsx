@@ -1,5 +1,5 @@
-import React from 'react';
-import {Link} from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const BookCard = () => {
   return (
@@ -11,34 +11,34 @@ const BookCard = () => {
             src="https://cdn.pixabay.com/photo/2016/03/27/19/32/book-1283865__480.jpg"
             alt="Couverture du livre"
           />
-          <h2 className="font-mono font-bold text-yellow-600 dark:text-yellow-900 p-2 m-2">
+          <h2 className="font-poppins font-bold text-yellow-600 dark:text-yellow-900 p-2 m-2">
             TITRE DU LIVRE
           </h2>
-          <h2 className="font-mono font-bold">AUTEUR DU LIVRE</h2>
-            <h3 className="italic">RESUME DU LIVRE</h3>
-            <h3>GENRE DU LIVRE</h3>
-            <h3>EDITEUR DU LIVRE</h3>
-            <h3 className="italic">AVIS SUR LE LIVRE</h3>
+          <h2 className="font-poppinsfont-bold">AUTEUR DU LIVRE</h2>
+          <h3 className="font-open italic">RESUME DU LIVRE</h3>
+          <h3 className="font-open">GENRE DU LIVRE</h3>
+          <h3 className="font-open">EDITEUR DU LIVRE</h3>
+          <h3 className="font-open italic">AVIS SUR LE LIVRE</h3>
           <div className="grid-cols-1">
             <Link to="/update">
               <button
                 type="button"
-                className="w-36 cursor-pointer text-white dark:text-black bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-4 mt-4"
+                className="font-poppins w-36 cursor-pointer text-white dark:text-black bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-4 mt-4"
               >
-                  Modifier
+                Modifier
               </button>
             </Link>
-              <button
-                type="button"
-                className="w-36 cursor-pointer text-white dark:text-black bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-"
-              >
-                Supprimer
-              </button>
+            <button
+              type="button"
+              className="font-poppins  w-36 cursor-pointer text-white dark:text-black bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-"
+            >
+              Supprimer
+            </button>
           </div>
         </div>
-    </div>
-  </section>
-  )
-}
+      </div>
+    </section>
+  );
+};
 
-export default BookCard
+export default BookCard;

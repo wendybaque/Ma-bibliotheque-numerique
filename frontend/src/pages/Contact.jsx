@@ -56,9 +56,14 @@ function Contact() {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <div className="flex flex-col font-bold justify-center items-center text-center ">
-        <h2 className="text-xl text-center text-black dark:text-white font-bold m-2 p-2">Contact</h2>
-        <p className="text-black dark:text-white"> Une question ? Une suggestion ?</p>
-        <p className="text-yellow-600 mb-6">
+        <h2 className="font-poppins text-xl text-center text-black dark:text-white font-bold m-2 p-2">
+          Contact
+        </h2>
+        <p className="font-poppins text-black dark:text-white">
+          {" "}
+          Une question ? Une suggestion ?
+        </p>
+        <p className="font-poppins text-yellow-600 mb-6">
           Rendez-vous dans le formulaire ci-dessous.
         </p>
         <form
@@ -67,7 +72,7 @@ function Contact() {
           className="grid justify-items-center"
         >
           <Fade>
-            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
+            <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Nom
               <input
                 type="text"
@@ -76,12 +81,12 @@ function Contact() {
                 required
                 aria-required="true"
                 autoComplete="off"
-                className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
+            <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               E-mail
               <input
                 type="email"
@@ -90,12 +95,12 @@ function Contact() {
                 required
                 aria-required="true"
                 autoComplete="off"
-                className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
+            <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Sujet
               <input
                 type="text"
@@ -104,12 +109,12 @@ function Contact() {
                 required
                 aria-required="true"
                 autoComplete="off"
-                className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                 onChange={(e) => setSubject(e.target.value)}
                 value={subject}
               />
             </label>
-            <label className="grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
+            <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
               Message
               <textarea
                 rows="10"
@@ -118,7 +123,7 @@ function Contact() {
                 required
                 aria-required="true"
                 autoComplete="off"
-                className="m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                 onChange={(e) => setMessage(e.target.value)}
                 value={message}
               />
@@ -127,7 +132,7 @@ function Contact() {
             {btn ? (
               <button
                 type="submit"
-                className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+                className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
                 onClick={notify}
               >
                 Envoyer
@@ -136,7 +141,7 @@ function Contact() {
               <button
                 disabled
                 type="submit"
-                className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-200 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+                className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-200 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
               >
                 Envoyer
               </button>
