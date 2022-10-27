@@ -1,45 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
-import { Link, useNavigate } from "react-router-dom";
-import { FirebaseContext } from "../components/Firebase";
+import { Link } from "react-router-dom";
 
 const Signin = () => {
-  const navigate = useNavigate();
-
-  const firebase = useContext(FirebaseContext);
-
-  const [email, setEmail] = useState("");
-
-  const [password, setPassword] = useState("");
-
-  const [btn, setBtn] = useState(false);
-
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    if (password.length > 5 && email !== "") {
-      setBtn(true);
-    } else if (btn) {
-      setBtn(false);
-    }
-  }, [password, email, btn]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    firebase
-      .signinUser(email, password)
-      .then((user) => {
-        setEmail("");
-        setPassword("");
-        navigate("/library");
-      })
-      .catch((error) => {
-        setEmail("");
-        setPassword("");
-        setError(error);
-      });
-  };
-
   return (
     <section>
       <Helmet>
@@ -66,13 +29,7 @@ const Signin = () => {
                 <h2 className="font-poppins text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Connexion
                 </h2>
-                {error !== "" && (
-                  <span className="text-red-500 font-bold font-poppins m-2">
-                    {error.message}
-                  </span>
-                )}
                 <form
-                  onSubmit={handleSubmit}
                   className="grid justify-items-center"
                 >
                   <label
@@ -87,8 +44,7 @@ const Signin = () => {
                       aria-required="true"
                       autoComplete="off"
                       placeholder="jeanne123@email.com"
-                      onChange={(e) => setEmail(e.target.value)}
-                      value={email}
+
                     />
                   </label>
                   <label
@@ -102,26 +58,10 @@ const Signin = () => {
                       required
                       aria-required="true"
                       autoComplete="off"
-                      onChange={(e) => setPassword(e.target.value)}
-                      value={password}
+
                     />
                   </label>
-                  {btn ? (
-                    <button
-                      type="submit"
-                      className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
-                    >
-                      Se connecter
-                    </button>
-                  ) : (
-                    <button
-                      disabled
-                      type="submit"
-                      className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-200 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
-                    >
-                      Se connecter
-                    </button>
-                  )}
+                  
                 </form>
                 <Link to="/forgetpassword">
                   <button
