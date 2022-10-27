@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios'
+
 
 const Signin = () => {
+  const navigate = useNavigate();
+
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+  });
+
+  const [err, setError] = useState(null);
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+    await axios.post("auth/signin", inputs);
+    navigate("/library");
+    } catch (err) {
+      setError(err.response.data);
+    }
+  };
+
   return (
     <section>
       <Helmet>
@@ -33,18 +58,19 @@ const Signin = () => {
                   className="grid justify-items-center"
                 >
                   <label
-                    htmlFor="email"
+                    htmlFor="username"
                     className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
                   >
-                    E-mail
+                    Nom d'utilisateur
                     <input
                       className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                      type="email"
+                      type="username"
                       required
                       aria-required="true"
                       autoComplete="off"
                       placeholder="jeanne123@email.com"
-
+                      name="username"
+                      onChange={handleChange}
                     />
                   </label>
                   <label
@@ -58,19 +84,19 @@ const Signin = () => {
                       required
                       aria-required="true"
                       autoComplete="off"
-
+                      name="password"
+                      onChange={handleChange}
                     />
                   </label>
-                  
-                </form>
-                <Link to="/forgetpassword">
                   <button
-                    type="button"
-                    className="font-poppins p-6 cursor-pointer text-red-400 text-bold"
+                    type="submit"
+                    className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center m-8"
+                    onClick={handleSubmit}
                   >
-                    Mot de passe oublié ?
+                    Se connecter
                   </button>
-                </Link>
+{err && <p className="font-poppins text-red-400 p-2"> {err} </p>}
+                </form>
               </div>
             </div>
           </div>

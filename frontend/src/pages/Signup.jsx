@@ -1,28 +1,32 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const [inputs, setInputs] = useState({
     username: "",
     email: "",
     password: "",
   });
 
+  const [err, setError] = useState(null);
+
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
- 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("auth/signup", inputs)
-  console.log(res)
-  } catch (err) {
-    console.log(err)
-  }
-  }
+    await axios.post("auth/signup", inputs);
+    navigate("/signin");
+    } catch (err) {
+      setError(err.response.data);
+    }
+  };
 
   return (
     <section>
@@ -99,11 +103,15 @@ const Signup = () => {
                       name="password"
                     />
                   </label>
-                  <button type="submit" className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center m-8" onClick={handleSubmit}>
+                  <button
+                    type="submit"
+                    className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center m-8"
+                    onClick={handleSubmit}
+                  >
                     S'inscrire
                   </button>
-                  <p>Affichage de l'erreur.</p>
-                </form>
+{err && <p className="font-poppins text-red-400 p-2"> {err} </p>
+}                </form>
               </div>
             </div>
           </div>
