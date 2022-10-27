@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Signup = () => {
+  const [inputs, setInputs] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+ 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("auth/signup", inputs)
+  console.log(res)
+  } catch (err) {
+    console.log(err)
+  }
+  }
 
   return (
     <section>
@@ -30,21 +50,21 @@ const Signup = () => {
                 <h2 className="font-poppins text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Inscription
                 </h2>
-                <form
-                  className="grid justify-items-center"
-                >
+                <form className="grid justify-items-center">
                   <label
-                    htmlFor="pseudo"
+                    htmlFor="username"
                     className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
                   >
-                    Pseudo
+                    Nom d'utilisateur
                     <input
                       className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                       type="text"
-                      id="pseudo"
+                      id="username"
                       required
                       aria-required="true"
                       autoComplete="off"
+                      onChange={handleChange}
+                      name="username"
                     />
                   </label>
                   <label
@@ -60,6 +80,8 @@ const Signup = () => {
                       aria-required="true"
                       autoComplete="off"
                       placeholder="jeanne123@email.com"
+                      onChange={handleChange}
+                      name="email"
                     />
                   </label>
                   <label
@@ -73,8 +95,14 @@ const Signup = () => {
                       id="password"
                       required
                       aria-required="true"
+                      onChange={handleChange}
+                      name="password"
                     />
                   </label>
+                  <button type="submit" className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center m-8" onClick={handleSubmit}>
+                    S'inscrire
+                  </button>
+                  <p>Affichage de l'erreur.</p>
                 </form>
               </div>
             </div>
