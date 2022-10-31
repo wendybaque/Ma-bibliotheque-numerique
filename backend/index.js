@@ -2,9 +2,14 @@ import express from "express";
 import booksRoutes from "./routes/books.js";
 import usersRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
+
+// MIDDLEWARES
 app.use(express.json());
+app.use(cookieParser());
+
 // BOOKS
 app.use("/backend/books", booksRoutes);
 
