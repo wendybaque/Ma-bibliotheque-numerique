@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 
 const Signin = () => {
@@ -14,6 +16,8 @@ const Signin = () => {
 
   const [err, setError] = useState(null);
 
+  const {signin} = useContext(AuthContext);
+
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -21,7 +25,7 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-    await axios.post("auth/signin", inputs);
+    await signin(inputs)
     navigate("/library");
     } catch (err) {
       setError(err.response.data);

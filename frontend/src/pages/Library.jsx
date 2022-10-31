@@ -1,9 +1,11 @@
 import React from "react";
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import Logout from "../components/Logout";
+import { AuthContext } from "../context/authContext";
 
 const Library = () => {
+  const { currentUser, logout } = useContext(AuthContext);
   // const port = process.env.PORT ?? 5000;
   return (
     <div className="bg-slate-100 dark:bg-slate-800">
@@ -16,11 +18,32 @@ const Library = () => {
         Tous mes livres
       </h2>
 
-      <div className="p-2 m-2 grid grid-cols-4 gap-3">
-        <h3 className="font-poppins text-yellow-900 dark:text-yellow-600">
-          Bienvenue dans ta bibliothèque numérique,
-        </h3>
-        <Logout />
+      <div className="flex flex-row justify-around items-center">
+        {currentUser ? (
+          <h3 className="font-poppins text-yellow-900 dark:text-yellow-600">
+            Bienvenue dans ta bibliothèque numérique, {currentUser?.username} !
+          </h3>
+        ) : (
+          <h3 className="font-poppins text-yellow-900 dark:text-yellow-600">
+            Un petit aperçu des livres disponibles dans Ma bibliothèque numérique... 
+          </h3>
+        )}
+        {currentUser ? (
+          <button
+            onClick={logout}
+            type="button"
+            className="font-poppins over:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+          >
+            Déconnexion
+          </button>
+        ) : (
+          <Link
+            to="/signup"
+            className="font-poppins font-bold text-yellow-600 dark:text-yellow-900"
+          >
+            S'inscrire
+          </Link>
+        )}
       </div>
       <div className="grid grid-cols-4 gap-4">
         {/* {books.map((book) => (

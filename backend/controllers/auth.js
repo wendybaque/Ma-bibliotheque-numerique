@@ -47,5 +47,8 @@ export const signin = (req, res) => {
 };
 
 export const logout = (req, res) => {
-    
-}
+    res.clearCookie("access_token",{
+      sameSite:"none",
+      secure:true
+    }).status(200).json("L'utilisateur a bien été déconnecté.")
+  };
