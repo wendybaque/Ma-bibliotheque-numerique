@@ -1,7 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Fade } from "react-awesome-reveal";
-import Logout from "../components/Logout";
 
 const Update = () => {
   // const port = process.env.PORT ?? 5000;
@@ -17,7 +16,7 @@ const Update = () => {
         <h2 className="font-poppins text-xl text-center font-bold m-2 p-2">
           Modifier un livre
         </h2>
-        <Logout />
+
         <form>
           <Fade>
             <label className="font-open grid grid-col mb-2 text-sm font-medium">

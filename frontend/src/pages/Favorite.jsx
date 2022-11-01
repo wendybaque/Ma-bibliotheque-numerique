@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import Logout from "../components/Logout";
 
 const Favorite = () => {
   // const port = process.env.PORT ?? 5000;
@@ -16,7 +15,6 @@ const Favorite = () => {
       <h2 className="font-poppins text-xl text-center text-black dark:text-white font-bold m-2 p-2">
         Mes livres favoris
       </h2>
-      <Logout />
 
       <div className="p-2 grid grid-cols-4 gap-4">
         {/* {favs.map((book) => (

@@ -18,6 +18,7 @@ import Favorite from "../src/pages/Favorite";
 import Contact from "../src/pages/Contact";
 import Page404 from "../src/pages/Page404";
 import ButtonTop from './components/ButtonTop';
+import Book from './pages/Book';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/search" element={<Search />} />
           <Route path="/favorite" element={<Favorite />} />
+          <Route path="/book/:id" element={<Book />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Page404 />} />
         </Routes>
