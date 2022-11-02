@@ -1,43 +1,33 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
-import { FirebaseContext } from "../components/Firebase";
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 const Signin = () => {
   const navigate = useNavigate();
 
-  const firebase = useContext(FirebaseContext);
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+  });
 
-  const [email, setEmail] = useState("");
+  const [err, setError] = useState(null);
 
-  const [password, setPassword] = useState("");
+  const { signin } = useContext(AuthContext);
 
-  const [btn, setBtn] = useState(false);
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    if (password.length > 5 && email !== "") {
-      setBtn(true);
-    } else if (btn) {
-      setBtn(false);
-    }
-  }, [password, email, btn]);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    firebase
-      .signinUser(email, password)
-      .then((user) => {
-        setEmail("");
-        setPassword("");
-        navigate("/library");
-      })
-      .catch((error) => {
-        setEmail("");
-        setPassword("");
-        setError(error);
-      });
+    try {
+      await signin(inputs);
+      navigate("/library");
+    } catch (err) {
+      setError(err.response.data);
+    }
   };
 
   return (
@@ -66,29 +56,21 @@ const Signin = () => {
                 <h2 className="font-poppins text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Connexion
                 </h2>
-                {error !== "" && (
-                  <span className="text-red-500 font-bold font-poppins m-2">
-                    {error.message}
-                  </span>
-                )}
-                <form
-                  onSubmit={handleSubmit}
-                  className="grid justify-items-center"
-                >
+                <form className="grid justify-items-center">
                   <label
-                    htmlFor="email"
+                    htmlFor="username"
                     className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
                   >
-                    E-mail
+                    Nom d'utilisateur
                     <input
                       className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                      type="email"
+                      type="username"
                       required
                       aria-required="true"
                       autoComplete="off"
                       placeholder="jeanne123@email.com"
-                      onChange={(e) => setEmail(e.target.value)}
-                      value={email}
+                      name="username"
+                      onChange={handleChange}
                     />
                   </label>
                   <label
@@ -102,35 +84,21 @@ const Signin = () => {
                       required
                       aria-required="true"
                       autoComplete="off"
-                      onChange={(e) => setPassword(e.target.value)}
-                      value={password}
+                      name="password"
+                      onChange={handleChange}
                     />
                   </label>
-                  {btn ? (
-                    <button
-                      type="submit"
-                      className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
-                    >
-                      Se connecter
-                    </button>
-                  ) : (
-                    <button
-                      disabled
-                      type="submit"
-                      className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-200 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
-                    >
-                      Se connecter
-                    </button>
+                  <button
+                    type="submit"
+                    className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center m-8"
+                    onClick={handleSubmit}
+                  >
+                    Se connecter
+                  </button>
+                  {err && (
+                    <p className="font-poppins text-red-400 p-2"> {err} </p>
                   )}
                 </form>
-                <Link to="/forgetpassword">
-                  <button
-                    type="button"
-                    className="font-poppins p-6 cursor-pointer text-red-400 text-bold"
-                  >
-                    Mot de passe oublié ?
-                  </button>
-                </Link>
               </div>
             </div>
           </div>

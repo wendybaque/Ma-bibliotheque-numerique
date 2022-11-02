@@ -1,14 +1,15 @@
 import React from "react";
 import logo from "../assets/logo-noir-removebg.png";
+import { Link } from "react-router-dom";
 
-export default function NavBar() {
+const Navbar = () => {
   return (
     <nav
-      className="flex items-center justify-between flex-wrap bg-yellow-900 dark:bg-slate-800 p-6"
+      className="flex items-center justify-between flex-wrap bg-yellow-900 dark:bg-slate-800 p-4"
       role="navigation"
     >
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <a href="/" alt="Back home">
+        <Link to="/">
           <img
             src={logo}
             className="fill-current h-24 w-24 mr-2"
@@ -17,46 +18,49 @@ export default function NavBar() {
             viewBox="0 0 54 54"
             alt="logo de l'application créé par Wendy Baqué"
           />
-        </a>
+        </Link>
       </div>
       <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto text-white">
         <div className="text-sm lg:flex-grow content-around m-2 p-2">
-          <a
-            href="/library"
+          <Link
+            to="/library"
             className="p-2 text-base font-normal font-poppins block mt-4 lg:inline-block lg:mt-0 text-white hover:text-cyan-100 mr-4 transition duration-300"
           >
             Tous les livres
-          </a>
-          <a
-            href="/add"
+          </Link>
+          <Link
+            to="/add"
             className="p-2 text-base font-normal font-poppins  block mt-4 lg:inline-block lg:mt-0 text-white hover:text-cyan-100 mr-4 transition duration-300"
           >
             Ajouter un livre
-          </a>
-          <a
-            href="/favorite"
+          </Link>
+          <Link
+            to="/favorite"
             alt="redirection vers la page des coups de coeur"
             className="p-2 text-base font-normal font-poppins  block mt-4 lg:inline-block lg:mt-0 text-white hover:text-cyan-100 mr-4 transition duration-300"
           >
             Mes coups de ♡
-          </a>
-          <a
-            href="/search"
+          </Link>
+          <Link
+            to="/search"
             alt="redirection vers la page de recherche de livre"
             className="p-2 text-base font-normal font-poppins  block mt-4 lg:inline-block lg:mt-0 text-white hover:text-cyan-100 mr-4 transition duration-300"
           >
             Rechercher un livre
-          </a>
+          </Link>
         </div>
         <div>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="animate-pulse text-base font-bold font-poppins inline-block px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent lg:mt-0 transition duration-300"
           >
             Contact
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
   );
 }
+
+export default Navbar;
+

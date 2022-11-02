@@ -1,79 +1,32 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
-import { FirebaseContext } from "../components/Firebase";
+import axios from "axios";
 
 const Signup = () => {
   const navigate = useNavigate();
-  // Context access
-  const firebase = useContext(FirebaseContext);
-  const data = {
-    pseudo: "",
+
+  const [inputs, setInputs] = useState({
+    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
-  };
+  });
 
-  const [signupData, setSignupData] = useState(data);
-
-  const [error, setError] = useState("");
+  const [err, setError] = useState(null);
 
   const handleChange = (e) => {
-    setSignupData({ ...signupData, [e.target.id]: e.target.value });
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password, pseudo } = signupData;
-    firebase
-      .signupUser(email, password)
-      .then((authUser) => {
-        return firebase.user(authUser.user.uid).set({
-          pseudo,
-          email,
-        });
-      })
-      .then(() => {
-        setSignupData({ ...data });
-        navigate("/library");
-      })
-      .catch((error) => {
-        setError(error);
-        setSignupData({ ...data });
-      });
+    try {
+      await axios.post("auth/signup", inputs);
+      navigate("/signin");
+    } catch (err) {
+      setError(err.response.data);
+    }
   };
-
-  // Destructuring
-  const { pseudo, email, password, confirmPassword } = signupData;
-
-  // Display of the submit button
-  const displayBtn =
-    pseudo === "" ||
-    email === "" ||
-    password === "" ||
-    password !== confirmPassword ? (
-      <button
-        disabled
-        type="submit"
-        className="hover:animate-bounce cursor-pointer text-grey-300 hover:text-grey-300 bg-yellow-200 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
-      >
-        S'insrcrire
-      </button>
-    ) : (
-      <button
-        type="submit"
-        className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
-      >
-        S'insrcrire
-      </button>
-    );
-
-  // Management of errors
-  const errorMsg = error !== "" && (
-    <span className="text-red-500 font-bold font-poppins m-2">
-      {error.message}
-    </span>
-  );
 
   return (
     <section>
@@ -101,25 +54,21 @@ const Signup = () => {
                 <h2 className="font-poppins text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Inscription
                 </h2>
-                <form
-                  onSubmit={handleSubmit}
-                  className="grid justify-items-center"
-                >
+                <form className="grid justify-items-center">
                   <label
-                    htmlFor="pseudo"
+                    htmlFor="username"
                     className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
                   >
-                    Pseudo
+                    Nom d'utilisateur
                     <input
                       className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                       type="text"
-                      id="pseudo"
+                      id="username"
                       required
                       aria-required="true"
                       autoComplete="off"
-                      placeholder="Dévoreuse_de_livres"
                       onChange={handleChange}
-                      value={pseudo}
+                      name="username"
                     />
                   </label>
                   <label
@@ -136,7 +85,7 @@ const Signup = () => {
                       autoComplete="off"
                       placeholder="jeanne123@email.com"
                       onChange={handleChange}
-                      value={email}
+                      name="email"
                     />
                   </label>
                   <label
@@ -151,26 +100,19 @@ const Signup = () => {
                       required
                       aria-required="true"
                       onChange={handleChange}
-                      value={password}
+                      name="password"
                     />
                   </label>
-                  <label
-                    htmlFor="confirmPassword"
-                    className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
+                  <button
+                    type="submit"
+                    className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center m-8"
+                    onClick={handleSubmit}
                   >
-                    Confirmer le mot de passe
-                    <input
-                      className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                      type="password"
-                      id="confirmPassword"
-                      required
-                      aria-required="true"
-                      onChange={handleChange}
-                      value={confirmPassword}
-                    />
-                  </label>
-                  {errorMsg}
-                  {displayBtn}
+                    S'inscrire
+                  </button>
+                  {err && (
+                    <p className="font-poppins text-red-400 p-2"> {err} </p>
+                  )}{" "}
                 </form>
               </div>
             </div>
