@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
-import axios from 'axios'
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
-
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -16,7 +14,7 @@ const Signin = () => {
 
   const [err, setError] = useState(null);
 
-  const {signin} = useContext(AuthContext);
+  const { signin } = useContext(AuthContext);
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -25,8 +23,8 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-    await signin(inputs)
-    navigate("/library");
+      await signin(inputs);
+      navigate("/library");
     } catch (err) {
       setError(err.response.data);
     }
@@ -58,9 +56,7 @@ const Signin = () => {
                 <h2 className="font-poppins text-xl md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                   Connexion
                 </h2>
-                <form
-                  className="grid justify-items-center"
-                >
+                <form className="grid justify-items-center">
                   <label
                     htmlFor="username"
                     className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
@@ -99,7 +95,9 @@ const Signin = () => {
                   >
                     Se connecter
                   </button>
-{err && <p className="font-poppins text-red-400 p-2"> {err} </p>}
+                  {err && (
+                    <p className="font-poppins text-red-400 p-2"> {err} </p>
+                  )}
                 </form>
               </div>
             </div>

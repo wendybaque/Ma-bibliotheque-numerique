@@ -15,6 +15,17 @@ export const getBooks = (req, res) => {
 };
 
 // READ
+export const getFavBooks = (req, res) => {
+  const query = "SELECT * FROM books WHERE opinion = 5 ";
+
+  db.query(query, [req.query.opinion], (err, data) => {
+    if (err) return res.status(500).send(err);
+
+    return res.status(200).json(data);
+  });
+};
+
+// READ
 export const getBook = (req, res) => {
   const query =
     "SELECT b.id, `username`, `title`, `desc`, `author`, `opinion`, b.img, u.img AS userImg, `cat`,`date` FROM users u JOIN books b ON u.id = b.uid WHERE b.id = ? ";
@@ -23,17 +34,6 @@ export const getBook = (req, res) => {
     if (err) return res.status(500).json(err);
 
     return res.status(200).json(data[0]);
-  });
-};
-
-// READ
-export const getFavBook = (req, res) => {
-  const query = "SELECT * FROM books WHERE opinion=5";
-
-  db.query(query, [req.query.opinion], (err, data) => {
-    if (err) return res.status(500).send(err);
-
-    return res.status(200).json(data);
   });
 };
 
@@ -99,9 +99,9 @@ export const updateBook = (req, res) => {
 
     const bookId = req.params.id;
     const query =
-      "UPDATE books SET `title`=?,`desc`=?,`img`=?,`cat`=? WHERE `id` = ? AND `uid` = ?";
+      "UPDATE books SET `title`=?,`desc`=?,`img`=?, `author`=?, `publisher`=?, `cat`=? WHERE `id` = ? AND `uid` = ?";
 
-    const values = [req.body.title, req.body.desc, req.body.img, req.body.cat];
+    const values = [req.body.title, req.body.desc, req.body.img, req.body.author, req.body.publisher, req.body.cat];
 
     db.query(query, [...values, bookId, userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);

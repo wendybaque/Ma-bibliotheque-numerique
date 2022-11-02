@@ -10,27 +10,15 @@ const Add = () => {
   const navigate = useNavigate();
 
   const [title, setTitle] = useState(state?.title || "");
-  const [file, setFile] = useState(null);
+  const [img, setImg] = useState(state?.img || "");
   const [cat, setCat] = useState(state?.cat || "");
   const [author, setAuthor] = useState(state?.author || "");
   const [publisher, setPublisher] = useState(state?.publisher || "");
   const [desc, setDesc] = useState(state?.desc || "");
   const [opinion, setOpinion] = useState(state?.opinion || "");
 
-  const upload = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await axios.post("/upload", formData);
-      return res.data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const imgUrl = await upload();
 
     try {
       state
@@ -41,7 +29,7 @@ const Add = () => {
             opinion,
             desc,
             cat,
-            img: file ? imgUrl : "",
+img
           })
         : await axios.post(`/books/`, {
             title,
@@ -50,7 +38,7 @@ const Add = () => {
             opinion,
             desc,
             cat,
-            img: file ? imgUrl : "",
+            img,
             date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
           });
       navigate("/library");
@@ -235,16 +223,17 @@ const Add = () => {
               </select>
             </label>
             <label
-              htmlFor="file"
+              htmlFor="img"
               className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white"
             >
               Couverture du livre
               <input
                 type="text"
-                id="file"
-                name="file"
+                id="img"
+                name="img"
                 className="m-2 p-2 "
-                onChange={(e) => setFile(e.target.value)}
+                onChange={(e) => setImg(e.target.value)}
+                value={img}
               ></input>
             </label>
             <button

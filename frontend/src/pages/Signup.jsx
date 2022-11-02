@@ -21,8 +21,8 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-    await axios.post("auth/signup", inputs);
-    navigate("/signin");
+      await axios.post("auth/signup", inputs);
+      navigate("/signin");
     } catch (err) {
       setError(err.response.data);
     }
@@ -110,8 +110,10 @@ const Signup = () => {
                   >
                     S'inscrire
                   </button>
-{err && <p className="font-poppins text-red-400 p-2"> {err} </p>
-}                </form>
+                  {err && (
+                    <p className="font-poppins text-red-400 p-2"> {err} </p>
+                  )}{" "}
+                </form>
               </div>
             </div>
           </div>

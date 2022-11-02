@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 
 const Library = () => {
@@ -14,19 +14,17 @@ const Library = () => {
 
   const [books, setBooks] = useState([]);
 
-  const cat = useLocation().search;
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/books${cat}`);
+        const res = await axios.get(`/books`);
         setBooks(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-  }, [cat]);
+  }, []);
 
   return (
     <div className="bg-slate-100 dark:bg-slate-800">

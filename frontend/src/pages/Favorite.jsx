@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 
 const Favorite = () => {
-  // const port = process.env.PORT ?? 5000;
+
+  const [favs, setFavs] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`/favorite`);
+        setFavs(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, []);
 
  return (
     
@@ -17,14 +31,14 @@ const Favorite = () => {
       </h2>
 
       <div className="p-2 grid grid-cols-4 gap-4">
-        {/* {favs.map((book) => (
+        {favs.map((book) => (
           <div
             key={book.id}
             className="m-6 transform transition duration-400 hover:scale-110 text-center w-72 p-2 bg-white rounded-lg border border-gray-200 shadow-md"
           >
-            {book.cover && (
+            {book.img && (
               <img
-                src={book.cover}
+                src={book.img}
                 alt="Couverture du livre"
                 className="rounded-lg h-72 w-64"
               />
@@ -34,11 +48,11 @@ const Favorite = () => {
             </h2>
             <h2 className="font-poppins font-bold">{book.author}</h2>
             <h3 className="font-open italic">{book.desc}</h3>
-            <h3 className="font-open">{book.genre}</h3>
+            <h3 className="font-open">{book.cat}</h3>
             <h3 className="font-open">{book.publisher}</h3>
             <h3 className="font-open italic font-bold">{book.opinion}/5</h3>
           </div>
-        ))} */}
+        ))}
       </div>
     </div>
   );
