@@ -20,7 +20,6 @@
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.0.5",
-    "react-tooltip": "^4.2.21",
     "reactstrap": "^9.1.4",
     "web-vitals": "^2.1.4"
   },

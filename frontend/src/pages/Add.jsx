@@ -24,17 +24,17 @@ const Add = () => {
       state
         ? await axios.put(`/books/${state.id}`, {
             title,
-            author, 
-            publisher, 
+            author,
+            publisher,
             opinion,
             desc,
             cat,
-img
+            img,
           })
         : await axios.post(`/books/`, {
             title,
-            author, 
-            publisher, 
+            author,
+            publisher,
             opinion,
             desc,
             cat,
@@ -60,7 +60,10 @@ img
         </h2>
         <form className="grid justify-items-center">
           <Fade>
-            <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
+            <label
+              htmlFor="title"
+              className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white"
+            >
               Titre du livre
               <input
                 type="text"
@@ -74,7 +77,10 @@ img
                 value={title}
               />
             </label>
-            <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
+            <label
+              htmlFor="author"
+              className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white"
+            >
               Auteur du livre
               <input
                 type="text"
@@ -175,7 +181,10 @@ img
                 checked={cat === "divers"}
               />
             </label>
-            <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
+            <label
+              htmlFor="publisher"
+              className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white"
+            >
               Editeur du livre
               <input
                 type="text"
@@ -189,7 +198,10 @@ img
                 value={publisher}
               />
             </label>
-            <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
+            <label
+              htmlFor="desc"
+              className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white"
+            >
               Résumé du livre
               <textarea
                 type="text"
@@ -203,7 +215,10 @@ img
                 value={desc}
               />
             </label>
-            <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
+            <label
+              htmlFor="opinion"
+              className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white"
+            >
               Avis sur le livre (note /5)
               <select
                 name="opinion"

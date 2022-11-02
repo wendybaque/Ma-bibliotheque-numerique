@@ -75,10 +75,9 @@ const Library = () => {
                 </h2>
               </Link>
               <h2 className="font-poppins font-bold p-1">{book.author}</h2>
-              <h3 className="font-open italic p-1">{book.desc}</h3>
-              <h3 className="font-open p-1">{book.cat}</h3>
-              <h3 className="font-open p-1">{book.publisher}</h3>
-              <h3 className="font-open italic p-1">{book.opinion}/5</h3>
+              <h3 className="font-open p-1">Genre : {book.cat}</h3>
+              <h3 className="font-open p-1">Editeur : {book.publisher}</h3>
+              <h3 className="font-open italic p-1">Avis : {book.opinion}/5</h3>
             </div>
           ))}
         </div>

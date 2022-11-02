@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import Menu from "../components/Menu";
 import axios from "axios";
 import moment from "moment";
 import { AuthContext } from "../context/authContext";
@@ -38,63 +37,60 @@ const Book = () => {
   };
 
   return (
-    <div className="flex flex-row justify-around bg-slate-100 dark:bg-slate-800">
+    <div className="bg-slate-100 dark:bg-slate-800">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Livre</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="basis-2/3">
-        <div className="flex flex-row justify-around m-2 p-2">
+
+      <div className="flex flex-row justify-around p-2">
+        <img
+          className="w-72 h-96 p-2 m-2 rounded-lg	drop-shadow-md"
+          src={book?.img}
+          alt="Couverture du livre"
+        />
+        
+        <div>
+        {book.userImg && (
           <img
-            className="w-72 h-96 p-2 m-2 rounded-lg	drop-shadow-md"
-            src={book?.img}
-            alt="Couverture du livre"
+            className="w-20 h-20 rounded-full p-2 m-2"
+            src={book.userImg}
+            alt="Avatar de l'utilisateur"
           />
-          {book.userImg && (
-            <img
-              className="w-20 h-20 rounded-full p-2 m-2"
-              src={book.userImg}
-              alt="Avatar de l'utilisateur"
-            />
-          )}
-          <div>
-            <span className="p-2 m-2 font-poppins font-bold">
-              {book.username}
-            </span>
-            <p className="p-2 m-2 font-normal">{moment(book.date).fromNow()}</p>
-            <p className="p-2 m-2 font-normal">{book.opinion}/5</p>
-            {currentUser.username === book.username && (
-              <div className="grid-cols-1">
-                <Link to={`/add?edit=2`} state={book}>
-                  <button
-                    type="button"
-                    className="font-open w-36 cursor-pointer text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-4 mt-4"
-                  >
-                    Modifier
-                  </button>
-                </Link>
+        )}
+          <span className="p-2 m-2 font-poppins font-bold">
+            {book.username}
+          </span>
+          <p className="p-2 m-2 font-normal">{moment(book.date).fromNow()}</p>
+          <p className="p-2 m-2 font-normal text-yellow-600">{book.opinion}/5</p>
+          {currentUser.username === book.username && (
+            <div className="grid-cols-1">
+              <Link to={`/add?edit=2`} state={book}>
                 <button
                   type="button"
-                  className="font-open w-36 cursor-pointer text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-"
-                  onClick={handleDelete}
+                  className="font-open w-36 cursor-pointer text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-4 mt-4"
                 >
-                  Supprimer
+                  Modifier
                 </button>
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="divide-y divide-slate-300 p-2 m-2">
-          <h2 className="m-2 p-2 font-poppins font-bold">{book.title}</h2>
-          <h2 className="m-2 p-2 font-poppins">{book.author}</h2>
-          <p className="text-justify m-2 p-2 font-normal leading-6">
-            {book.desc}
-          </p>
+              </Link>
+              <button
+                type="button"
+                className="font-open w-36 cursor-pointer text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-"
+                onClick={handleDelete}
+              >
+                Supprimer
+              </button>
+            </div>
+          )}
         </div>
       </div>
-      <div className="basis-1/3 m-2 p-2">
-        <Menu />
+      <div className="divide-y divide-slate-300 pr-10 pl-10">
+        <h2 className="p-2 font-poppins font-bold">{book.title}</h2>
+        <h2 className="p-2 font-poppins">{book.author}</h2>
+        <p className="text-justify p-2 font-normal leading-6">
+          {book.desc}
+        </p>
       </div>
     </div>
   );
