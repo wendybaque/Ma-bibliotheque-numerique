@@ -66,8 +66,7 @@ const Book = () => {
             <p className="p-2 m-2 font-normal">{book.opinion}/5</p>
             {currentUser.username === book.username && (
               <div className="grid-cols-1">
-                <Link to={`/update?edit=`}>
-                  {/* <Link to={`/update/${book.id}`}> */}
+                <Link to={`/add?edit=2`} state={book}>
                   <button
                     type="button"
                     className="font-open w-36 cursor-pointer text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-4 mt-4"

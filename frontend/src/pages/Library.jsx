@@ -19,7 +19,7 @@ const Library = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/books/${cat}`);
+        const res = await axios.get(`/books${cat}`);
         setBooks(res.data);
       } catch (err) {
         console.log(err);
@@ -39,7 +39,7 @@ const Library = () => {
       <div className="flex flex-row justify-around items-center">
         {currentUser ? (
           <h3 className="p-6 m-6 font-poppins text-yellow-900 dark:text-yellow-600">
-            Bienvenue dans ta bibliothèque numérique, {currentUser?.username} !
+            Bienvenue dans ta bibliothèque numérique, <span className="font-bold">{currentUser?.username} </span>!
           </h3>
         ) : (
           <span></span>

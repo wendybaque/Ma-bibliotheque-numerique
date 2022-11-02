@@ -3,12 +3,30 @@ import booksRoutes from "./routes/books.js";
 import usersRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
 import cookieParser from "cookie-parser";
+import multer from "multer";
 
 const app = express();
 
 // MIDDLEWARES
 app.use(express.json());
 app.use(cookieParser());
+
+// UPLOADS
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "../frontend/public/upload");
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, Date.now() + file.originalname);
+//   },
+// });
+
+// const upload = multer({ storage });
+
+// app.post("/backend/upload", upload.single("file"), function (req, res) {
+//   const file = req.file;
+//   res.status(200).json(file.filename);
+// });
 
 // BOOKS
 app.use("/backend/books", booksRoutes);
@@ -28,14 +46,6 @@ app.use("/backend/auth", authRoutes);
 //   });
 // });
 
-// // GET ALL BOOKS IN TITLE ALPHABETICAL ORDER = READ
-// app.get("/books/az", (req, res) => {
-//   const query = "SELECT * FROM books ORDER BY title ASC";
-//   db.query(query, (err, data) => {
-//     if (err) return res.json(err);
-//     return res.status(200).json(data);
-//   });
-// });
 
 // // GET FAVORITES BOOKS = READ
 // app.get("/books/fav", (req, res) => {
@@ -68,15 +78,6 @@ app.use("/backend/auth", authRoutes);
 //   });
 // });
 
-// // DELETE A BOOK = DELETE
-// app.delete("/books/:id", (req, res) => {
-//   const bookId = req.params.id;
-//   const query = "DELETE FROM books WHERE id = ?";
-//   db.query(query, [bookId], (err, data) => {
-//     if (err) return res.send(err);
-//     return res.status(200).json("Ton livre a bien été supprimé.");
-//   });
-// });
 
 // // UPDATE A BOOK = UPDATE
 // app.put("/books/:id", (req, res) => {

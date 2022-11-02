@@ -1,36 +1,63 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Fade } from "react-awesome-reveal";
-import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import moment from "moment";
 
 const Add = () => {
-  const [newBook, setNewBook] = useState({
-    title: "",
-    desc: "",
-    author: "",
-    cover: "",
-    opinion: null,
-    publisher: "",
-    genre: "",
-  });
-  console.log(newBook)
-
+  const state = useLocation().state;
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setNewBook((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const [title, setTitle] = useState(state?.title || "");
+  const [file, setFile] = useState(null);
+  const [cat, setCat] = useState(state?.cat || "");
+  const [author, setAuthor] = useState(state?.author || "");
+  const [publisher, setPublisher] = useState(state?.publisher || "");
+  const [desc, setDesc] = useState(state?.desc || "");
+  const [opinion, setOpinion] = useState(state?.opinion || "");
+
+  const upload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await axios.post("/upload", formData);
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
   };
-    // Database fetching
-    const handleClick = async (e) => {
-      e.preventDefault();
-      try {
-        await axios.post(`/books`, newBook);
-        navigate("/library");
-      } catch (err) {
-        console.log(err);
-      }
-    };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const imgUrl = await upload();
+
+    try {
+      state
+        ? await axios.put(`/books/${state.id}`, {
+            title,
+            author, 
+            publisher, 
+            opinion,
+            desc,
+            cat,
+            img: file ? imgUrl : "",
+          })
+        : await axios.post(`/books/`, {
+            title,
+            author, 
+            publisher, 
+            opinion,
+            desc,
+            cat,
+            img: file ? imgUrl : "",
+            date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+          });
+      navigate("/library");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="lg:flex lg:flex-row md:flex-col sm:flex-col bg-slate-100 dark:bg-slate-800 overflow-hidden justify-center">
@@ -55,7 +82,8 @@ const Add = () => {
                 aria-required="true"
                 autoComplete="off"
                 className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                onChange={handleChange}
+                onChange={(e) => setTitle(e.target.value)}
+                value={title}
               />
             </label>
             <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
@@ -68,74 +96,95 @@ const Add = () => {
                 aria-required="true"
                 autoComplete="off"
                 className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                onChange={handleChange}
+                onChange={(e) => setAuthor(e.target.value)}
+                value={author}
               />
             </label>
-            <h2 className="m-2 p-2 font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">Genre du livre</h2>
-            <label htmlFor="massecritique"> Masse Critique
+            <h2 className="m-2 p-2 font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
+              Genre du livre
+            </h2>
+            <label htmlFor="massecritique">
+              {" "}
+              Masse Critique
               <input
                 type="radio"
                 name="cat"
                 required
                 value="massecritique"
                 id="massecritique"
-                onChange={handleChange}
+                onChange={(e) => setCat(e.target.value)}
                 className="m-2 p-2"
+                checked={cat === "massecritique"}
               />
             </label>
-            <label htmlFor="coupdecoeur"> Coup de coeur
+            <label htmlFor="coupdecoeur">
+              {" "}
+              Coup de coeur
               <input
                 type="radio"
                 name="cat"
                 required
                 value="coupdecoeur"
                 id="coupdecoeur"
-                onChange={handleChange}
+                onChange={(e) => setCat(e.target.value)}
                 className="m-2 p-2"
+                checked={cat === "coupdecoeur"}
               />
             </label>
-            <label htmlFor="feelgood"> Feel-Good
+            <label htmlFor="feelgood">
+              {" "}
+              Feel-Good
               <input
                 type="radio"
                 name="cat"
                 required
                 value="feelgood"
                 id="feelgood"
-                onChange={handleChange}
+                onChange={(e) => setCat(e.target.value)}
                 className="m-2 p-2"
+                checked={cat === "feelgood"}
               />
             </label>
-            <label htmlFor="romance"> Romance
+            <label htmlFor="romance">
+              {" "}
+              Romance
               <input
                 type="radio"
                 name="cat"
                 required
                 value="romance"
                 id="romance"
-                onChange={handleChange}
+                onChange={(e) => setCat(e.target.value)}
                 className="m-2 p-2"
+                checked={cat === "romance"}
               />
             </label>
-            <label htmlFor="thriller"> Thriller
+            <label htmlFor="thriller">
+              {" "}
+              Thriller
               <input
                 type="radio"
                 name="cat"
                 required
                 value="thriller"
                 id="thriller"
-                onChange={handleChange}
+                onChange={(e) => setCat(e.target.value)}
                 className="m-2 p-2"
+                checked={cat === "thriller"}
               />
             </label>
-            <label htmlFor="divers"> Divers
+            <label htmlFor="divers">
+              {" "}
+              Divers
               <input
                 type="radio"
                 name="cat"
                 required
                 value="divers"
                 id="divers"
-                onChange={handleChange}
+                onChange={(e) => setCat(e.target.value)}
                 className="m-2 p-2"
+                checked={cat === "divers"}
               />
             </label>
             <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
@@ -148,7 +197,8 @@ const Add = () => {
                 aria-required="true"
                 autoComplete="off"
                 className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                onChange={handleChange}
+                onChange={(e) => setPublisher(e.target.value)}
+                value={publisher}
               />
             </label>
             <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
@@ -161,7 +211,8 @@ const Add = () => {
                 aria-required="true"
                 autoComplete="off"
                 className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                onChange={handleChange}
+                onChange={(e) => setDesc(e.target.value)}
+                value={desc}
               />
             </label>
             <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
@@ -172,7 +223,8 @@ const Add = () => {
                 aria-required="true"
                 autoComplete="off"
                 className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                onChange={handleChange}
+                onChange={(e) => setOpinion(e.target.value)}
+                value={opinion}
               >
                 <option>0</option>
                 <option>1</option>
@@ -182,25 +234,22 @@ const Add = () => {
                 <option>5</option>
               </select>
             </label>
-            <label htmlFor="file" className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">Couverture du livre
-            <input type="file" id="file" name="img" placeholder="la-couverture-de-mon-livre.png" className="m-2 p-2 "></input>
-            </label>
-            {/* <label className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white">
-              Couverture du livre (url)
+            <label
+              htmlFor="file"
+              className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white"
+            >
+              Couverture du livre
               <input
                 type="text"
-                placeholder="ex : https://la-couverture-de-mon-livre.jpg"
-                name="img"
-                required
-                aria-required="true"
-                autoComplete="off"
-                className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                onChange={handleChange}
-              />
-            </label> */}
+                id="file"
+                name="file"
+                className="m-2 p-2 "
+                onChange={(e) => setFile(e.target.value)}
+              ></input>
+            </label>
             <button
-              type="button"
-              onClick={handleClick}
+              type="submit"
+              onClick={handleSubmit}
               className="font-poppins over:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
             >
               Ajouter ce livre
