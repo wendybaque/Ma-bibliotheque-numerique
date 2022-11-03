@@ -52,7 +52,7 @@ const Library = () => {
             Déconnexion
           </button>
         ) : (
-          <span>{navigate("/")}</span>
+          <span>{navigate("/*")}</span>
         )}
       </div>
 
@@ -83,7 +83,7 @@ const Library = () => {
           ))}
         </div>
       ) : (
-        <span>{navigate("/library")}</span>
+        <span>{navigate("/*")}</span>
       )}
     </div>
   );

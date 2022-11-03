@@ -11,25 +11,25 @@ const Book = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const postId = location.pathname.split("/")[2];
+  const bookId = location.pathname.split("/")[2];
 
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/books/${postId}`);
+        const res = await axios.get(`/books/${bookId}`);
         setBook(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-  }, [postId]);
+  }, [bookId]);
 
   const handleDelete = async (e) => {
     try {
-      await axios.delete(`/books/${postId}`);
+      await axios.delete(`/books/${bookId}`);
       navigate("/library");
     } catch (err) {
       console.log(err);
