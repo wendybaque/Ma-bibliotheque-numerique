@@ -15,17 +15,6 @@ export const getBooks = (req, res) => {
 };
 
 // READ
-export const getFavBooks = (req, res) => {
-  const query = "SELECT * FROM books WHERE opinion = 5 ";
-
-  db.query(query, [req.query.opinion], (err, data) => {
-    if (err) return res.status(500).send(err);
-
-    return res.status(200).json(data);
-  });
-};
-
-// READ
 export const getBook = (req, res) => {
   const query =
     "SELECT b.id, `username`, `title`, `desc`, `author`, `opinion`, b.img, u.img AS userImg, `cat`,`date` FROM users u JOIN books b ON u.id = b.uid WHERE b.id = ? ";

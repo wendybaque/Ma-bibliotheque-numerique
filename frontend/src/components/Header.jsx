@@ -43,7 +43,7 @@ export default function Header() {
       </div>
       {/* Text */}
       <div className="lg:flex lg:flex-row bg-slate-100 dark:bg-slate-800">
-        <div className="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-0 text-center m-2">
+        <div className="md:w-1/3 md:px-4 xl:px-6 mt-3 md:mt-0 text-center">
           <span className="w-20 border-t-2 border-solid border-yellow-900 dark:border-yellow-600 rounded-md inline-block mb-3" />
           <h5 className="font-poppins text-xl font-medium uppercase mb-4 text-gray-600 dark:text-gray-100">
             Tous vos livres au même endroit
@@ -53,7 +53,7 @@ export default function Header() {
             sont bien rangés !
           </p>
         </div>
-        <div className="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-0 text-center m-2">
+        <div className="mt-3 md:w-1/3 md:px-4 xl:px-6 md:mt-0 text-center sm:justify-center">
           <span className="w-20 border-t-2 border-solid border-yellow-900 dark:border-yellow-600 rounded-md inline-block mb-3" />
           <h5 className="font-poppins text-xl font-medium uppercase mb-4 text-gray-600 dark:text-gray-100">
             Un bon répertoire pour vos avis
@@ -66,7 +66,7 @@ export default function Header() {
           </p>
         </div>
 
-        <div className="md:w-1/3 md:px-4 xl:px-6 mt-8 md:mt-0 text-center m-2">
+        <div className="md:w-1/3 md:px-4 xl:px-6 mt-3 md:mt-0 text-center">
           <span className="w-20 border-t-2 border-solid border-yellow-900 dark:border-yellow-600 rounded-md inline-block mb-3" />
           <h5 className="font-poppins text-xl font-medium uppercase mb-4 text-gray-600 dark:text-gray-100">
             Un outil partique et accessible partout

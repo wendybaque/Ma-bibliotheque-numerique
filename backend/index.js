@@ -19,19 +19,6 @@ app.use("/backend/users", usersRoutes);
 // AUTH
 app.use("/backend/auth", authRoutes);
 
-
-// // GET FAVORITES BOOKS = READ
-// app.get("/books/fav", (req, res) => {
-//   const query = "SELECT * FROM books WHERE opinion = 5";
-//   db.query(query, (err, data) => {
-//     if (err) {
-//       console.log(err);
-//       return res.json(err);
-//     }
-//     return res.status(200).json(data);
-//   });
-// });
-
 // BACKEND CONFIG
 
 const port = process.env.PORT ?? 5000;

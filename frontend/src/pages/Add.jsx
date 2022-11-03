@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Fade } from "react-awesome-reveal";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -16,6 +16,8 @@ const Add = () => {
   const [publisher, setPublisher] = useState(state?.publisher || "");
   const [desc, setDesc] = useState(state?.desc || "");
   const [opinion, setOpinion] = useState(state?.opinion || "");
+
+  const [btn, setBtn] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,6 +48,22 @@ const Add = () => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    if (
+      title !== "" &&
+      desc !== "" &&
+      author !== "" &&
+      publisher !== "" &&
+      opinion !== "" &&
+      cat !== "" &&
+      img !== ""
+    ) {
+      setBtn(true);
+    } else if (btn) {
+      setBtn(false);
+    }
+  }, [title, desc, author, publisher, opinion, cat, img, btn]);
 
   return (
     <div className="lg:flex lg:flex-row md:flex-col sm:flex-col bg-slate-100 dark:bg-slate-800 overflow-hidden justify-center">
@@ -241,23 +259,34 @@ const Add = () => {
               htmlFor="img"
               className="font-open grid grid-col mb-2 text-sm font-medium text-black dark:text-white"
             >
-              Couverture du livre
+              Couverture du livre (url)
               <input
                 type="text"
                 id="img"
                 name="img"
-                className="m-2 p-2 "
+                className="font-open m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
                 onChange={(e) => setImg(e.target.value)}
                 value={img}
               ></input>
             </label>
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="font-poppins over:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
-            >
-              Ajouter ce livre
-            </button>
+
+            {btn ? (
+              <button
+                type="submit"
+                className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+                onClick={handleSubmit}
+              >
+                Ajouter ce livre
+              </button>
+            ) : (
+              <button
+                disabled
+                type="submit"
+                className="font-poppins hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-200 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+              >
+                Ajouter ce livre
+              </button>
+            )}
           </Fade>
         </form>
       </div>

@@ -37,7 +37,8 @@ const Library = () => {
       <div className="flex flex-row justify-around items-center">
         {currentUser ? (
           <h3 className="p-6 m-6 font-poppins text-yellow-900 dark:text-yellow-600">
-            Bienvenue dans ta bibliothèque numérique, <span className="font-bold">{currentUser?.username} </span>!
+            Bienvenue dans ta bibliothèque numérique,{" "}
+            <span className="font-bold">{currentUser?.username} </span>!
           </h3>
         ) : (
           <span></span>
@@ -69,8 +70,8 @@ const Library = () => {
                   className="rounded-lg h-72 w-64 p-1"
                 />
               )}
-              <Link className="link" to={`/book/${book.id}`}>
-                <h2 className="font-poppins font-bold text-yellow-600 p-1 m-2">
+              <Link to={`/book/${book.id}`}>
+                <h2 className="font-poppins font-bold text-yellow-600 p-1">
                   {book.title}
                 </h2>
               </Link>

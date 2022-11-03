@@ -50,20 +50,22 @@ const Book = () => {
           src={book?.img}
           alt="Couverture du livre"
         />
-        
+
         <div>
-        {book.userImg && (
-          <img
-            className="w-20 h-20 rounded-full p-2 m-2"
-            src={book.userImg}
-            alt="Avatar de l'utilisateur"
-          />
-        )}
+          {book.userImg && (
+            <img
+              className="w-20 h-20 rounded-full p-2 m-2"
+              src={book.userImg}
+              alt="Avatar de l'utilisateur"
+            />
+          )}
           <span className="p-2 m-2 font-poppins font-bold">
             {book.username}
           </span>
           <p className="p-2 m-2 font-normal">{moment(book.date).fromNow()}</p>
-          <p className="p-2 m-2 font-normal text-yellow-600">{book.opinion}/5</p>
+          <p className="p-2 m-2 font-normal text-yellow-600">
+            {book.opinion}/5
+          </p>
           {currentUser.username === book.username && (
             <div className="grid-cols-1">
               <Link to={`/add?edit=2`} state={book}>
@@ -88,9 +90,7 @@ const Book = () => {
       <div className="divide-y divide-slate-300 pr-10 pl-10">
         <h2 className="p-2 font-poppins font-bold">{book.title}</h2>
         <h2 className="p-2 font-poppins">{book.author}</h2>
-        <p className="text-justify p-2 font-normal leading-6">
-          {book.desc}
-        </p>
+        <p className="text-justify p-2 font-normal leading-6">{book.desc}</p>
       </div>
     </div>
   );

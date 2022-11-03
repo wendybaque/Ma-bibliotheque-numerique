@@ -49,7 +49,7 @@ function Search() {
           backgroundPosition: "50%",
           backgroundImage:
             "url('https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_960_720.jpg')",
-          height: "400px",
+          height: "500px",
         }}
       >
         <div
@@ -61,49 +61,50 @@ function Search() {
               <h2 className="font-poppins text-xl text-white md:text-3xl xl:text-4xl font-bold tracking-tight mb-12">
                 Rechercher un livre
               </h2>
-              <div className="mb-3">
-                <input
-                  type="text"
-                  required
-                  aria-required="true"
-                  autoComplete="off"
-                  className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                  placeholder="Rechercher un titre de livre, un auteur, une thématique..."
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-                <button
-                  type="submit"
-                  className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
-                  onClick={handleSubmit}
-                >
-                  <i className="fas fa-search" />
-                </button>
-              </div>
-              <div className="flex text-white justify-content-center">
-                <form>
-                  <label htmlFor="maxResults">Nombre maximum de résultat</label>
+              <div className="flex flex-col">
+                <div>
                   <input
-                    className="text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                    type="number"
-                    id="maxResults"
-                    placeholder="Ex: 20"
-                    value={maxResults}
-                    onChange={(e) => setMaxResults(e.target.value)}
+                    type="text"
+                    required
+                    aria-required="true"
+                    autoComplete="off"
+                    className="text-gray-900 m-2 p-4 w-2/3 rounded-lg shadow-md cursor-pointer font-normal"
+                    placeholder="Rechercher un titre de livre, une thématique..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
                   />
-                </form>
-                <form className="ml-5">
+                  <button
+                    type="submit"
+                    className="hover:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center"
+                    onClick={handleSubmit}
+                  >
+                    <i className="fas fa-search" />
+                  </button>
+                </div>
+                <form className="flex flex-row">
+                  <label htmlFor="maxResults">
+                    Nombre maximum de résultat
+                    <input
+                      className="text-gray-900 m-2 p-4  rounded-lg shadow-md cursor-pointer font-normal"
+                      type="number"
+                      id="maxResults"
+                      placeholder="Ex: 20"
+                      value={maxResults}
+                      onChange={(e) => setMaxResults(e.target.value)}
+                    />
+                  </label>
+
                   <label htmlFor="startIndex" className="font-open">
                     Démarrer à l'index...
+                    <input
+                      className="font-open text-gray-900 m-2 p-4  rounded-lg shadow-md cursor-pointer font-normal"
+                      type="number"
+                      id="startIndex"
+                      placeholder="Ex: 1"
+                      value={startIndex}
+                      onChange={(e) => setStartIndex(e.target.value)}
+                    />
                   </label>
-                  <input
-                    className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
-                    type="number"
-                    id="startIndex"
-                    placeholder="Ex: 1"
-                    value={startIndex}
-                    onChange={(e) => setStartIndex(e.target.value)}
-                  />
                 </form>
               </div>
             </div>

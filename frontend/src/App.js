@@ -12,7 +12,6 @@ import Add from "../src/pages/Add";
 import Signin from "../src/pages/Signin";
 import Signup from "../src/pages/Signup";
 import Search from "../src/pages/Search";
-import Favorite from "../src/pages/Favorite";
 import Contact from "../src/pages/Contact";
 import Page404 from "../src/pages/Page404";
 import ButtonTop from './components/ButtonTop';
@@ -31,7 +30,6 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/favorite" element={<Favorite />} />
           <Route path="/book/:id" element={<Book />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Page404 />} />

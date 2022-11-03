@@ -35,13 +35,6 @@ const Navbar = () => {
             Ajouter un livre
           </Link>
           <Link
-            to="/favorite"
-            alt="redirection vers la page des coups de coeur"
-            className="p-2 text-base font-normal font-poppins  block mt-4 lg:inline-block lg:mt-0 text-white hover:text-cyan-100 mr-4 transition duration-300"
-          >
-            Mes coups de ♡
-          </Link>
-          <Link
             to="/search"
             alt="redirection vers la page de recherche de livre"
             className="p-2 text-base font-normal font-poppins  block mt-4 lg:inline-block lg:mt-0 text-white hover:text-cyan-100 mr-4 transition duration-300"
@@ -52,7 +45,7 @@ const Navbar = () => {
         <div>
           <Link
             to="/contact"
-            className="animate-pulse text-base font-bold font-poppins inline-block px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent lg:mt-0 transition duration-300"
+            className="p-2 m-2 animate-pulse text-base font-bold font-poppins inline-block px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent lg:mt-0 transition duration-300"
           >
             Contact
           </Link>
@@ -60,7 +53,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
-
