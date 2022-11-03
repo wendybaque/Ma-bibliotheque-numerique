@@ -10,6 +10,7 @@ const Signup = () => {
     username: "",
     email: "",
     password: "",
+    img:"",
   });
 
   const [err, setError] = useState(null);
@@ -101,6 +102,21 @@ const Signup = () => {
                       aria-required="true"
                       onChange={handleChange}
                       name="password"
+                    />
+                  </label>
+                  <label
+                    htmlFor="img"
+                    className="font-open grid grid-col mb-2 text-sm font-medium text-white dark:text-gray-300"
+                  >
+                    Photo de profil (url)
+                    <input
+                      className="font-open text-gray-900 m-2 p-4 w-96 rounded-lg shadow-md cursor-pointer font-normal"
+                      type="text"
+                      id="img"
+                      required
+                      aria-required="true"
+                      onChange={handleChange}
+                      name="img"
                     />
                   </label>
                   <button
