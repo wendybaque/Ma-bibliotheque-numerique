@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import axios from "axios";
 import BookCardSearch from "../components/BookCardSearch";
+import { Helmet } from "react-helmet";
 
 function Search() {
   // States
@@ -43,6 +44,7 @@ function Search() {
   // Main Show Case
   const mainHeader = () => {
     return (
+      
       <div
         className="relative overflow-hidden bg-no-repeat bg-cover"
         style={{
@@ -52,6 +54,11 @@ function Search() {
           height: "500px",
         }}
       >
+              <Helmet>
+        <meta charSet="utf-8" />
+        <title>Rechercher un livre</title>
+        <link rel="canonical" href="https://mabibliothequenumerique.vercel.app/search" />
+      </Helmet>
         <div
           className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.55)" }}

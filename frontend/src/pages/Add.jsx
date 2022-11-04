@@ -70,7 +70,7 @@ const Add = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Ajouter un livre</title>
-        <link rel="canonical" href="http://mysite.com/example" />
+        <link rel="canonical" href="https://mabibliothequenumerique.vercel.app/add" />
       </Helmet>
       <div className="flex flex-col font-bold justify-center items-center text-center ">
         <h2 className="font-poppins text-xl text-center text-black dark:text-white font-bold m-2 p-2">

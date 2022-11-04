@@ -26,7 +26,7 @@ const Page404 = () => {
                 404
               </h2>
               <p className="mb-2 text-2xl font-bold text-center text-gray-800 dark:text-slate-100 md:text-3xl">
-                <span className="font-open text-red-500">Oups!</span> Il n'y pas
+                <span className="font-open text-red-500">Oups !</span> Il n'y pas
                 de livre par ici.
               </p>
               <p className="font-open mb-8 text-center text-gray-500 dark:text-slate-100 md:text-lg">
@@ -36,7 +36,8 @@ const Page404 = () => {
             <div className="mt-4">
               <img
                 src="https://www.plkdenoetique.com/wp-content/uploads/2016/03/falling_into_a_good_book_joel_robison-e1458749901453-825x465.jpg"
-                alt="img"
+                alt=""
+                aria-hidden="true"
                 className="object-cover w-full h-full rounded-md box-shadow-lg"
               />
             </div>

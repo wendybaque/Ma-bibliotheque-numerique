@@ -41,7 +41,7 @@ const Book = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Livre</title>
-        <link rel="canonical" href="http://mysite.com/example" />
+        <link rel="canonical" href="https://mabibliothequenumerique.vercel.app/book" />
       </Helmet>
 
       <div className="flex flex-row justify-around p-2">
