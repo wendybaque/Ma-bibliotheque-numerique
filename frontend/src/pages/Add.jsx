@@ -8,7 +8,7 @@ import moment from "moment";
 const Add = () => {
   const state = useLocation().state;
   const navigate = useNavigate();
-
+  
   const [title, setTitle] = useState(state?.title || "");
   const [img, setImg] = useState(state?.img || "");
   const [cat, setCat] = useState(state?.cat || "");

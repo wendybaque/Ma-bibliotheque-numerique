@@ -1,3 +1,3 @@
 export const addUser = (req, res) => {
-    res.json("from controllers")
-}
+  res.json("from controllers");
+};

@@ -31,7 +31,10 @@ const Library = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Bibliothèque</title>
-        <link rel="canonical" href="https://mabibliothequenumerique.vercel.app/library" />
+        <link
+          rel="canonical"
+          href="https://mabibliothequenumerique.vercel.app/library"
+        />
       </Helmet>
 
       <div className="flex flex-row justify-around items-center">
@@ -47,7 +50,8 @@ const Library = () => {
           <button
             onClick={logout}
             type="button"
-            className="font-poppins over:animate-bounce cursor-pointer text-white hover:text-white bg-yellow-600 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+            className="font-poppins over:animate-bounce cursor-pointer
+            text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
           >
             Déconnexion
           </button>

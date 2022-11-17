@@ -12,7 +12,7 @@ const Page404 = () => {
   });
 
   return (
-    <div className="bg-slate-100 dark:bg-slate-800">
+    <div className="bg-slate-100 dark:bg-slate-800 overflow-hidden">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Oups ! Error 404</title>
@@ -27,18 +27,18 @@ const Page404 = () => {
               </h2>
               <p className="mb-2 text-2xl font-bold text-center text-gray-800 dark:text-slate-100 md:text-3xl">
                 <span className="font-open text-red-500">Oups !</span> Il n'y pas
-                de livre par ici.
+                de livre par ici <br/> ou tu as été déconnecté de ta bibliothèque.
               </p>
-              <p className="font-open mb-8 text-center text-gray-500 dark:text-slate-100 md:text-lg">
+              <p className="font-open mb-4 text-center text-gray-500 dark:text-slate-100 md:text-lg">
                 Tu vas être redirigé à l'accueil.
               </p>
             </div>
-            <div className="mt-4">
+            <div className="mt-2">
               <img
                 src="https://www.plkdenoetique.com/wp-content/uploads/2016/03/falling_into_a_good_book_joel_robison-e1458749901453-825x465.jpg"
                 alt=""
                 aria-hidden="true"
-                className="object-cover w-full h-full rounded-md box-shadow-lg"
+                className="object-cover w-full h-96 rounded-md box-shadow-lg"
               />
             </div>
           </div>

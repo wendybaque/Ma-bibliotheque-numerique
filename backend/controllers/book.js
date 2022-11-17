@@ -40,7 +40,7 @@ export const addBook = (req, res) => {
     const values = [
       req.body.title,
       req.body.desc,
-      req.body.author, 
+      req.body.author,
       req.body.publisher,
       req.body.opinion,
       req.body.img,
@@ -90,7 +90,14 @@ export const updateBook = (req, res) => {
     const query =
       "UPDATE books SET `title`=?,`desc`=?,`img`=?, `author`=?, `publisher`=?, `cat`=? WHERE `id` = ? AND `uid` = ?";
 
-    const values = [req.body.title, req.body.desc, req.body.img, req.body.author, req.body.publisher, req.body.cat];
+    const values = [
+      req.body.title,
+      req.body.desc,
+      req.body.img,
+      req.body.author,
+      req.body.publisher,
+      req.body.cat,
+    ];
 
     db.query(query, [...values, bookId, userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);
