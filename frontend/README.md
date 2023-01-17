@@ -8,7 +8,7 @@ L'organisation de mes users stories et du suivi de mon travail ont été réalis
 
 
 # Maquette
-[!](https://www.hebergeur-image.com/upload/88.174.47.6-63c6902ee0cd8.png)
+![!](https://www.hebergeur-image.com/upload/88.174.47.6-63c6902ee0cd8.png)
 Réalisée sur [Figma](https://www.figma.com/file/g2DQwVxJBO5aTFXE2dxOtd/Checkpoint-4-Ma-biblioth%C3%A8que-num%C3%A9rique?node-id=202%3A2)
 
 # Base de données modélisée
