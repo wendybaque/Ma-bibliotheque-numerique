@@ -37,7 +37,7 @@ const Library = () => {
         />
       </Helmet>
 
-      <div className="flex flex-row justify-around items-center">
+      <div className="flex flex-row justify-between items-center ml-10 mr-10">
         {currentUser ? (
           <h3 className="p-6 m-6 font-poppins text-yellow-900 dark:text-yellow-600">
             Bienvenue dans ta bibliothèque numérique,{" "}
@@ -61,7 +61,7 @@ const Library = () => {
       </div>
 
       {currentUser ? (
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-2 justify-between ml-24">
           {books.map((book) => (
             <div
               key={book.id}
