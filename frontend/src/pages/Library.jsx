@@ -37,9 +37,9 @@ const Library = () => {
         />
       </Helmet>
 
-      <div className="flex flex-row justify-between items-center ml-10 mr-10">
+      <div className="flex flex-row justify-between items-center lg:ml-10 mr-10">
         {currentUser ? (
-          <h3 className="p-6 m-6 font-poppins text-yellow-900 dark:text-yellow-600">
+          <h3 className="p-6 lg:m-6 font-poppins text-yellow-900 dark:text-yellow-600">
             Bienvenue dans ta bibliothèque numérique,{" "}
             <span className="font-bold">{currentUser?.username} </span>!
           </h3>
@@ -51,7 +51,7 @@ const Library = () => {
             onClick={logout}
             type="button"
             className="font-poppins over:animate-bounce cursor-pointer
-            text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-8 ml-8 mt-6"
+            text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 box-shadow-lg font-bold rounded-lg text-sm px-5 py-2.5 text-center lg:mr-8 ml-8 mt-6"
           >
             Déconnexion
           </button>
@@ -61,7 +61,7 @@ const Library = () => {
       </div>
 
       {currentUser ? (
-        <div className="grid grid-cols-4 gap-2 justify-between ml-24">
+        <div className="lg:grid grid-cols-4 gap-2 justify-between lg:ml-24">
           {books.map((book) => (
             <div
               key={book.id}
