@@ -10,7 +10,7 @@ const Signup = () => {
     username: "",
     email: "",
     password: "",
-    img:"",
+    img: "",
   });
 
   const [err, setError] = useState(null);
@@ -34,7 +34,10 @@ const Signup = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Inscription</title>
-        <link rel="canonical" href="https://mabibliothequenumerique.vercel.app/signup" />
+        <link
+          rel="canonical"
+          href="https://mabibliothequenumerique.vercel.app/signup"
+        />
       </Helmet>
       <div className="bg-slate-100 dark:bg-slate-800">
         <div
@@ -118,6 +121,21 @@ const Signup = () => {
                       onChange={handleChange}
                       name="img"
                     />
+                  </label>
+                  <label>
+                    <input type="checkbox" className="mr-4 checked:bg-yellow-600" />
+                    J'accepte les cookies que mes données soient utilisées
+                    conformément aux{" "}
+                    <a
+                      href="/legals"
+                      alt="Redirection vers la page des mentions légales / RGPD"
+                      aria-label="Redirection vers la page des mentions légales / RGPD"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-yellow-600 font-bold"
+                    >
+                      RGPD
+                    </a>
                   </label>
                   <button
                     type="submit"

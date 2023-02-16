@@ -6,7 +6,7 @@ export default function Footer() {
       <span className="font-poppins text-sm text-gray-500 sm:text-center dark:text-gray-400">
         Copyright© 2022. All Rights Reserved.
       </span>
-      <ul className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+      <ul className="flex flex-wrap  items-center text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
           <a
             href="https://wendybaquedevweb.netlify.app/"
@@ -23,9 +23,16 @@ export default function Footer() {
           <a
             href="/contact"
             alt="redirection vers la page contact"
-            className="hover:underline font-poppins hover:text-yellow-600"
+            className="hover:underline font-poppins mr-6 hover:text-yellow-600"
           >
             Contact
+          </a>
+          <a
+            href="/legals"
+            alt="redirection vers la page contact"
+            className="hover:underline font-poppins hover:text-yellow-600"
+          >
+            Mentions légales
           </a>
         </li>
       </ul>
